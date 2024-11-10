@@ -1,0 +1,2 @@
+--- Failure 2801 Duplicate prime Key in TABLENAME
+'erreur Failure 2801 Duplicate prime Key in TABLENAME dans Teradata signifie que vous essayez d'insérer une ligne qui a une clé primaire déjà existante dans la table spécifiée. Cela se produit lorsque la colonne ou le groupe de colonnes désignées comme clé primaire contiennent déjà la même valeur dans la table. Voici quelques façons de résoudre ce problème :
