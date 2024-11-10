@@ -1,1 +1,5 @@
-test
+Suite à l'alerte concernant l'échec d'un script d'insertion de données, j'ai analysé l'erreur liée à la contrainte d'unicité pour le couple (date, id_tiers).
+
+Après investigation, il apparaît que cette violation provient de l'insertion de doublons avec des valeurs partiellement différentes : une des lignes pour un même couple (date, id_tiers) comprend une date de création de l'entreprise, tandis que l’autre ne dispose pas de cette information.
+
+Pour résoudre cette situation, nous pourrions prioriser la ligne contenant la date de création, garantissant ainsi une intégrité de données renforcée.
