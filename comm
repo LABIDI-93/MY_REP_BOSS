@@ -1,5 +1,3 @@
-Suite à l'alerte concernant l'échec d'un script d'insertion de données, j'ai analysé l'erreur liée à la contrainte d'unicité pour le couple (date, id_tiers).
+Comme convenu, j’ai vérifié que le crédit absent lors du précédent arrêté figure bien dans les données de crédit restituées au sein de PIIIII pour ce dernier arrêté. Je vous confirme également que les ajustements nécessaires ont été réalisés conformément à vos attentes.
 
-Après investigation, il apparaît que cette violation provient de l'insertion de doublons avec des valeurs partiellement différentes : une des lignes pour un même couple (date, id_tiers) comprend une date de création de l'entreprise, tandis que l’autre ne dispose pas de cette information.
-
-Pour résoudre cette situation, nous pourrions prioriser la ligne contenant la date de création, garantissant ainsi une intégrité de données renforcée.
+Vous trouverez ci-dessous les détails de la ligne correspondant à la prestation en question, extraite de l’export Excel de l'indicateur de crédit de PIIII.
