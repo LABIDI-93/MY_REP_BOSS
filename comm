@@ -1,1 +1,1 @@
-Après validation avec le métier, il est nécessaire de modifier l'affichage de l'indicateur XXX sur l'écran. L'information sera désormais intitulée Nombre de contrats pondérés (brut et pondéré) au lieu de Nombre de contrats total
+Comme indiqué dans l'image ci-dessous, la jauge relative à la flotte > 20 ne sera plus affichée dans l'écran de la vue de synthèse, cette information n'étant plus prise en compte comme indicateur."
