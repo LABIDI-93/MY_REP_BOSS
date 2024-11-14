@@ -1,1 +1,2 @@
-Cette donnée représente un indicateur qui précise si le contrat signé concerne une flotte de 20 véhicules ou plus. Dans ce cas, la colonne prendra la valeur 1. En revanche, si le nombre de véhicules est strictement inférieur à 20, la colonne sera valorisée à 0
+
+Pour répondre aux évolutions mentionnées dans cette DCO, le fichier provenant de PILAT contiendra des informations, parmi lesquelles figurent les données de flotte et de bourse.
