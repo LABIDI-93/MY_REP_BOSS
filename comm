@@ -1,1 +1,1 @@
-Comme indiqué dans l'image ci-dessous, la jauge relative à la flotte > 20 ne sera plus affichée dans l'écran de la vue de synthèse, cette information n'étant plus prise en compte comme indicateur."
+Cette donnée représente un indicateur qui précise si le contrat signé concerne une flotte de 20 véhicules ou plus. Dans ce cas, la colonne prendra la valeur 1. En revanche, si le nombre de véhicules est strictement inférieur à 20, la colonne sera valorisée à 0
