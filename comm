@@ -1,1 +1,3 @@
-Merci pour ton retour. En effet, j'aurais besoin d'accéder à l'environnement de développement, car cela me permettra d'examiner en détail la construction de la couche sémantique et des cubes. Cela m'aidera à mieux organiser mes études de cadrage ainsi que la rédaction des spécifications
+Dans la vision actuelle, deux ratios "RO" exprimés en euros sont définis. Ils reflètent le réalisé par rapport à l’objectif à un instant T, respectivement sur les encours des entreprises et sur les encours des institutionnels.
+
+Ces données proviennent des sources MF, MSO, PR et RFF, et sont exprimées en devise euro et hors devise euro.
