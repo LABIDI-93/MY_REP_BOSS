@@ -1,1 +1,3 @@
-Cette donnée correspond à la somme des montants des encours, ventilés par les DR, réalisés au mois de décembre de l'année précédente (par rapport à l'année actuelle). Elle concerne uniquement les informations remontées par GGGF dont la devise est en euros
+ Il s'agit du montant fixé par PPP, généré dans l'outil PAAA et redescendu par ruissellement dans PIAAAt. Aucune modification technique n'est requise à ce sujet. Cependant, une vérification de la saisie sera souhaitable après la première mise à jour de l'outil PAAMMM par PPP.
+
+Note : Une explication plus détaillée de l'objectif est disponible à la page 7 du présent document.
