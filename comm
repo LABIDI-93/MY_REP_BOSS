@@ -1,3 +1,1 @@
-L'image présentée ci-dessus illustre la nouvelle structure des informations que PPP souhaite remonter à la suite de cette évolution. Cette structure se compose de huit colonnes, répétées deux fois : une première fois pour l'indicateur des encours ENT, et une seconde pour les encours Institution.
-
-Vous trouverez ci-dessous la description des règles de gestion à appliquer pour chacune de ces huit colonnes
+Cette donnée correspond à la somme des montants des encours, ventilés par les DR, réalisés au mois de décembre de l'année précédente (par rapport à l'année actuelle). Elle concerne uniquement les informations remontées par GGGF dont la devise est en euros
