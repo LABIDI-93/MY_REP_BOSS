@@ -1,1 +1,2 @@
-Étant donné que nous modifions le périmètre de l'indicateur et que nous objectivons uniquement les SGRF, le nom de la jauge dans la vue d'ensemble doit être adapté. Elle sera donc renommée DAT SGRF au lieu de DAT, comme illustré dans l'image ci-dessus.
+En complément des modifications mentionnées, il est indispensable d’ajouter l’information Top devise à la fin du fichier d’export Excel. Cette donnée sera valorisée à 1 pour les lignes en devise et à 0 pour celles hors devise. Pour les données provenant des fichiers, cette information sera renseignée. En revanche, pour la source DWH, elle sera systématiquement valorisée à 0, car seules les lignes hors devises y sont désormais intégrées.
+
