@@ -1,10 +1,12 @@
-Des études du côté de PILES sont en cours. En fonction de leurs retours, nous devrons choisir une alternative parmi les deux suivantes :
+Bonjour [Nom du PO],
 
-Première alternative : Elle a été détaillée dans la section 3.1.1.
+Suite à notre échange d'aujourd'hui, j'ai procédé à la mise à jour du DCO en tenant compte des éventuelles modifications concernant les codes produits promoteurs et les montants de crédit à comptabiliser.
 
-Deuxième alternative : Elle consiste à adapter le script d'alimentation des données de crédit afin de ne récupérer que la moitié du montant des crédits promoteurs. Cela implique d'étudier une modification pour diviser par 2 chaque montant provenant de la liste des codes produit mentionnés dans la section 3.1.1.
+Vous trouverez ci-dessous le lien vers la documentation mise à jour :
+[Insérez le lien ici]
 
-Si cette solution est retenue, il sera nécessaire :
+Je vous invite à la consulter et à me faire part de vos retours dès que possible.
 
-De conserver l’alimentation des produits actuellement remontés (en annulant les filtres appliqués aux crédits promoteurs).
-D’appliquer une réduction de 50 % à chaque prestation remontée depuis sa source.
+Merci d'avance pour votre retour.
+
+Cordialement,
