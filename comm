@@ -1,3 +1,9 @@
-Dans ce premier lot, pour la vue de synthèse, il est nécessaire de supprimer l'ensemble des jauges relatives aux crédits (hors RSE), comme illustré dans l'image ci-dessous. Ces jauges seront remplacées par une jauge unique, qui représentera le montant cumulé de la production pour l'ensemble des produits et sur tous les marchés.
+Dans le cadre du lot 1 de cette évolution, les modifications suivantes ont été convenues :
 
-Afin d’optimiser le temps de développement sur l’ensemble des écrans, nous proposons de masquer temporairement les éléments à supprimer pendant cette phase de transition.
+Création d'une colonne "MT Cumul" : Cette colonne sera alimentée par le montant cumulé des crédits, incluant les crédits CBM, CMT et CBI, sur l’ensemble des marchés (ENT, ESI, COT).
+
+Ajout d’une colonne "Montant Objectif" : Cette colonne présentera le montant de l’objectif défini, tel qu’il est saisi dans l’application PPPP par PPIII.
+
+Insertion d’une colonne "R/O" : Exprimée en pourcentage, cette colonne calculera le ratio entre le montant réalisé ("MT Cumul") et le montant de l’objectif ("Montant Objectif").
+
+Ces ajustements permettront d’offrir une vue plus claire et analytique des performances par rapport aux objectifs fixés.
