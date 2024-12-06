@@ -1,7 +1,3 @@
-L'évolution de l'indicateur crédit pour l'année 2025 sera déclinée en deux phases distinctes :
+Dans ce premier lot, pour la vue de synthèse, il est nécessaire de supprimer l'ensemble des jauges relatives aux crédits (hors RSE), comme illustré dans l'image ci-dessous. Ces jauges seront remplacées par une jauge unique, qui représentera le montant cumulé de la production pour l'ensemble des produits et sur tous les marchés.
 
-Phase 1 : Ce premier volet portera sur l'exclusion de certains produits dans le processus d'alimentation, ainsi que sur l'affichage, dans les écrans PPI, des seules informations en lien avec les objectifs (R/O). Ces ajustements visent à clarifier et recentrer les données affichées.
-
-Phase 2 : La seconde étape couvrira l'ensemble des informations non objectivées, afin d'assurer une cohérence et une exhaustivité dans le traitement des données.
-
-Les détails relatifs à ces évolutions sont exposés dans les sections suivantes.
+Afin d’optimiser le temps de développement sur l’ensemble des écrans, nous proposons de masquer temporairement les éléments à supprimer pendant cette phase de transition.
