@@ -1,32 +1,36 @@
-ans un projet agile, c'est quoi un programme incrément ? 
+Ingestion des données ? c'est quoi dans un projet data ?
 ChatGPT a dit :
 ChatGPT
-Dans un projet agile, un Programme Increment (PI) est un élément clé du cadre SAFe (Scaled Agile Framework), qui aide à organiser et synchroniser le travail des équipes agiles à l’échelle d’un programme ou d’une organisation. Un PI correspond à une période de temps, généralement comprise entre 8 et 12 semaines (souvent 10 semaines), au cours de laquelle les équipes collaborent pour livrer un ensemble de fonctionnalités ou de livrables alignés sur les objectifs stratégiques du programme.
+L'ingestion des données est une étape essentielle dans un projet data, qui consiste à collecter et intégrer des données provenant de différentes sources dans un système centralisé pour les exploiter, les analyser ou les transformer. Voici une explication détaillée :
 
-Caractéristiques principales d'un Programme Increment :
-Planification PI (PI Planning) :
+Qu'est-ce que l'ingestion des données ?
+C'est le processus de capture, d'extraction et de transfert de données depuis leurs sources d'origine (API, bases de données, fichiers CSV, logs, etc.) vers une destination, souvent un data lake, un data warehouse ou une plateforme de traitement en temps réel.
+Ce processus peut être réalisé de manière :
+Batch (par lots) : Les données sont transférées périodiquement (ex. : toutes les heures, tous les jours).
+En temps réel (streaming) : Les données sont intégrées en continu, presque immédiatement après leur création.
+Pourquoi est-ce important dans un projet data ?
+Centralisation : Les données proviennent souvent de différentes sources disparates. L'ingestion permet de les rassembler pour une vue globale.
+Préparation à l'analyse : Une fois les données centralisées, elles peuvent être nettoyées, transformées et rendues exploitables.
+Automatisation : L'ingestion établit un pipeline automatisé qui garantit que les données sont toujours à jour pour l'analyse ou l'exploitation.
+Scalabilité : Dans les projets de grande envergure, l'ingestion doit pouvoir gérer des volumes importants de données sans goulot d'étranglement.
+Les étapes typiques d'un processus d'ingestion
+Identification des sources : API, systèmes transactionnels, capteurs IoT, bases de données, fichiers plats, etc.
+Extraction des données : Lecture et récupération des données dans leur format brut.
+Transformation éventuelle : Validation, nettoyage ou reformattage minimal (exemple : conversion de formats).
+Chargement : Dépôt des données dans la destination cible (Data Lake, Data Warehouse, ou autre système).
+Les outils courants pour l'ingestion
+ETL/ELT Tools : Talend, Informatica, Apache NiFi, Matillion.
+Streaming Tools : Apache Kafka, AWS Kinesis, Google Pub/Sub.
+Data Pipelines : Airflow, Dagster, Luigi.
+Cloud Services : AWS Glue, Azure Data Factory, Google Dataflow.
+Exemple concret dans un projet
+Dans un projet comme ton projet Data Airlines, l'ingestion des données pourrait inclure :
 
-Chaque PI débute par un événement de planification où toutes les équipes concernées se réunissent (physiquement ou virtuellement).
-Objectifs : définir les priorités, aligner les équipes, identifier les dépendances, et fixer les engagements pour le PI à venir.
-Livraison incrémentale de valeur :
-
-Le PI est structuré en plusieurs itérations (sprints) pendant lesquelles les équipes produisent des incréments de travail prêts à être livrés.
-Cela permet de fournir régulièrement de la valeur aux parties prenantes.
-Objectifs du PI (PI Objectives) :
-
-Des objectifs mesurables et clairs sont définis pour chaque PI, donnant une vision globale de ce que le programme doit accomplir.
-Synchronisation et collaboration :
-
-Le PI coordonne les efforts des équipes pour gérer les interdépendances, réduire les obstacles et assurer la cohérence des livrables.
-Inspect & Adapt (Révision et amélioration) :
-
-À la fin de chaque PI, un événement de rétrospective est organisé pour analyser ce qui a bien fonctionné, ce qui peut être amélioré, et planifier des ajustements pour le prochain PI.
-Pourquoi un Programme Increment est-il important ?
-Alignement stratégique : Il garantit que les équipes travaillent sur des priorités alignées avec les objectifs de l'organisation.
-Visibilité : Les parties prenantes obtiennent une vue d'ensemble des progrès réalisés et des priorités futures.
-Flexibilité : Tout en offrant une structure, il permet des ajustements en fonction des retours et des évolutions du marché.
-Livraison régulière : Le PI favorise la livraison continue et incrémentale de valeur.
-En résumé, le Programme Increment est une brique essentielle pour coordonner des projets complexes et multidimensionnels tout en maintenant l'agilité et la réactivité.
+Récupération des données via API Lufthansa sur les vols, avions, et horaires.
+Extraction des données JSON de l'API.
+Stockage initial dans un data lake pour archivage ou traitement brut.
+Transformation et nettoyage avant chargement dans un data warehouse (Snowflake, par exemple) pour la visualisation et l'analyse.
+L'ingestion est donc le premier pas dans le cycle de vie des données et un élément clé pour garantir la réussite d'un projet data !
 
 
 
