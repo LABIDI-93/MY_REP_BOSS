@@ -1,1 +1,1 @@
-Parmi les sources de données alimentant PILL, seuls les dépôts à terme de RFRFR seront pris en compte. En conséquence, tout dépôt à terme différent de celui de SFFF sera exclu.
+Pour ce faire, il est nécessaire de ne plus prendre en compte les fichiers XXXFIC, XXXSOL et XIV lors de l'alimentation de PPP. Par ailleurs, le flux BM devra être configuré pour ne laisser passer que les dépôts à terme (DAT) de RFF
