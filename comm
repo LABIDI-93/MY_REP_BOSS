@@ -1,5 +1,18 @@
-Bonjour,
+Cette évolution s’inscrit dans le cadre de changements majeurs nécessitant un pilotage rigoureux. En conséquence, leur analyse et leur chiffrage ont représenté une charge significative pour l’équipe RRRB.
 
-Je te confirme qu'après leur décommissionnement, les indicateurs A et B ne seront pas définitivement supprimés de l'application. Cela nous permettra de les récupérer ultérieurement si vous en faites la demande.
+Afin de répondre efficacement à cette complexité, nous avons préconisé une démarche de lotissement. Cette approche consiste à découper chaque évolution en plusieurs lots, classés par ordre de priorité selon un indicateur donné :
 
-Cordialement,
+Lot 1 : les informations vitales devant impérativement figurer dans l’indicateur, telles que le R/O.
+Lot 2 : les informations de suivi.
+Lot 3 : les informations jugées moins prioritaires.
+Dans cette même logique, l’évolution en question sera découpée en trois lots :
+
+Lot 1 : les informations de R/O.
+Lot 2 : les informations de suivi.
+Lot 3 : les boutons radio et les liens vers les deux indicateurs.
+
+
+
+
+
+
