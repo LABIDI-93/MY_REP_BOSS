@@ -1,18 +1,1 @@
-Cette évolution s’inscrit dans le cadre de changements majeurs nécessitant un pilotage rigoureux. En conséquence, leur analyse et leur chiffrage ont représenté une charge significative pour l’équipe RRRB.
-
-Afin de répondre efficacement à cette complexité, nous avons préconisé une démarche de lotissement. Cette approche consiste à découper chaque évolution en plusieurs lots, classés par ordre de priorité selon un indicateur donné :
-
-Lot 1 : les informations vitales devant impérativement figurer dans l’indicateur, telles que le R/O.
-Lot 2 : les informations de suivi.
-Lot 3 : les informations jugées moins prioritaires.
-Dans cette même logique, l’évolution en question sera découpée en trois lots :
-
-Lot 1 : les informations de R/O.
-Lot 2 : les informations de suivi.
-Lot 3 : les boutons radio et les liens vers les deux indicateurs.
-
-
-
-
-
-
+Dans la vue d’ensemble, au niveau de la rubrique des produits (voir image ci-dessous), nous devons ajouter, dans ce premier lot, un titre intitulé CAPY. Ce titre servira de lien vers le nouvel indicateur. Ainsi, la rubrique des produits comportera un titre supplémentaire, comme illustré dans l’image ci-dessous.
