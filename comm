@@ -1,3 +1,15 @@
-La section située en bas à gauche de l’écran affichera les nouvelles informations liées au R/O à ajouter. Afin d’optimiser l’ergonomie de l’affichage, il est demandé de supprimer la colonne "dont CBI" pour le marché PUB, car sa valeur est toujours nulle. Par ailleurs, les pourcentages liés au R/O doivent être arrondis à l’unité, en supprimant les deux chiffres après la virgule. Cela permettra de libérer de l’espace et d’afficher les informations relatives au R/O pour tous les marchés et produits.
+Bonjour,
 
-Si cette solution s’avère insuffisante, une alternative consisterait à positionner ces nouvelles informations en bas de l’écran, en dessous des indicateurs actuellement présents sur l’écran CRED. De plus, un encadré de performance devra être ajouté pour rappeler les chiffres du R/O liés au XX pour ce nouvel indicateur.
+Comme convenu, nous avons retravaillé l’analyse de l’évolution du Crédit. Vous trouverez ci-dessous le lien vers la nouvelle version des spécifications fonctionnelles.
+
+En l’absence de l’équipe DAT, pourriez-vous les examiner et nous faire part de vos éventuels retours ?
+
+Voici également le nouveau découpage :
+
+1
+2
+3
+4
+Je reste disponible pour toute clarification nécessaire.
+
+Cordialement,
