@@ -1,16 +1,3 @@
-Dans ce premier lot d’évolution, l’objectif est de mettre en service toutes les informations relatives au R/O (Réalisation sur Objectif), à savoir : l’objectif annuel, l’objectif saisonnalisé, le cumul, et le R/O saisonnalisé, comme indiqué dans l’illustration ci-dessous.
+La section située en bas à gauche de l’écran affichera les nouvelles informations liées au R/O à ajouter. Afin d’optimiser l’ergonomie de l’affichage, il est demandé de supprimer la colonne "dont CBI" pour le marché PUB, car sa valeur est toujours nulle. Par ailleurs, les pourcentages liés au R/O doivent être arrondis à l’unité, en supprimant les deux chiffres après la virgule. Cela permettra de libérer de l’espace et d’afficher les informations relatives au R/O pour tous les marchés et produits.
 
-Règles de gestion d’alimentation :
-Objectif annuel :
-Correspond au nombre total de contrats (Cash MA et Monéti) qu’une entité doit réaliser sur une année. Cette information sera inscrite dans une ligne de suivi dédiée, puis propagée par ruissellement dans l’application PPP.
-
-Objectif saisonnalisé :
-Similaire à l’objectif annuel, cette donnée sera également descendue depuis l’application PAM. Elle représente l’objectif saisonnalisé, soit le nombre de contrats qu’une entité doit atteindre à un instant T (défini comme la date de connexion à l’application). Cette donnée est actualisée de manière incrémentale : au fil de l’année, l’objectif saisonnalisé augmente progressivement jusqu’à égaler l’objectif annuel en fin d’année.
-
-Cumul :
-Cette donnée représente le total des contrats réalisés depuis le début de l’année. Elle fusionne les indicateurs Cash et Monéti en une seule colonne, affichant la somme des réalisations pour ces deux catégories à un instant T. Par exemple, si X et Y sont les réalisations respectives de Cash et Monéti, la valeur A = X + Y sera affichée dans cette colonne.
-
-R/O saisonnalisé :
-Ce dernier indicateur, exprimé en pourcentage, représente le ratio entre le cumul et l’objectif saisonnalisé. Il permet de mesurer si une entité est en avance ou en retard par rapport à son objectif pour la période actuelle (moment de connexion).
-
-Ces données fourniront une vision claire et dynamique de la performance en fonction des objectifs fixés.
+Si cette solution s’avère insuffisante, une alternative consisterait à positionner ces nouvelles informations en bas de l’écran, en dessous des indicateurs actuellement présents sur l’écran CRED. De plus, un encadré de performance devra être ajouté pour rappeler les chiffres du R/O liés au XX pour ce nouvel indicateur.
