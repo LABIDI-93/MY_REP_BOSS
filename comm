@@ -1,5 +1,1 @@
-Bonjour,
-
-Selon le dossier de spécifications fonctionnelles, une jeune entreprise doit être topée dès que le montant des flux est atteint, comme indiqué dans l'image ci-dessous. Il paraît donc logique que l'EEE soit topée dès le premier mois. À mon avis, ce point mérite d’être discuté lors de notre prochaine réunion.
-
-Merci.
+Étant donné que le nouvel écran CAP est conçu pour afficher les réalisations de cash et monétique, il convient de décommissionner les colonnes "Objectif" et "RO" de l'indicateur cash actuel. Pour ce faire, nous conserverons la structure existante sans alimenter ces deux colonnes, tandis que le reste des informations restera inchangé.
