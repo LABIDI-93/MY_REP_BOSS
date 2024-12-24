@@ -1,1 +1,1 @@
-Étant donné que le nouvel écran CAP est conçu pour afficher les réalisations de cash et monétique, il convient de décommissionner les colonnes "Objectif" et "RO" de l'indicateur cash actuel. Pour ce faire, nous conserverons la structure existante sans alimenter ces deux colonnes, tandis que le reste des informations restera inchangé.
+L'écran relatif à l'indicateur commerçant n'est pas objectivé dans la solution actuelle. Toutefois, aucun changement n'est nécessaire pour cet écran. Ci-dessous, une illustration de l'indicateur actuel.
