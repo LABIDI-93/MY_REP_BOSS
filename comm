@@ -1,1 +1,7 @@
-Après analyse et découpage en US avec les développeurs, nous avons conclu qu’il serait plus efficace et économique d’adopter dès le lot 1 une solution intégrant un indicateur CAP dans le produit, tout en supprimant les deux autres, accessibles uniquement via les boutons radio de l’indicateur. Pouvez-vous valider cette approche ? Merci.
+
+Pour le métier, une startup ne doit être remontée dans DDDD que si son chiffre d'affaires est supérieur ou égal à 2 millions d'euros. 
+Or, ce n'est pas le cas de la PM HHHUI. 
+
+Après avoir consulté le fichier Excel de l'indicateur EEE ainsi que les tables d'alimentation PPPP associées, j'ai constaté la présence de plusieurs lignes de type "startup" affichant un chiffre d'affaires inférieur à 2 millions d'euros. 
+
+Par ailleurs, une recherche dans la documentation fonctionnelle de cet indicateur n'a révélé aucune mention de la règle évoquée par le métier.
