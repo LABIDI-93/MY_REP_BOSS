@@ -1,8 +1,1 @@
-Plusieurs startups sont actuellement présentes dans l'application, même si leur chiffre d'affaires est inférieur à X millions d'euros.
-Ci-dessous, la liste issue de l'export Excel :
-
-[Insérer la liste ici]
-
-Nous n'avons pas de Règle de Gestion (RDG) définie à ce sujet.
-
-De plus, la raison pour laquelle cette PM (petite/moyenne entreprise) a été validée dans l'application, selon adc , est la suivante :
+Dans ce carré de performance, lorsque le niveau est RFFF, seule la performance de cette vision est affichée, comme illustré dans l'image ci-dessous. Pour tous les autres niveaux de vision, le carré de performance présente deux informations : (1) un rappel de la performance actuelle et (2) un rappel de la performance de la vision N-1. Cette méthode est utilisée par l'indicateur Activation XXX.
