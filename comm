@@ -1,2 +1,48 @@
+Oui, un business analyst peut tout à fait joindre des commentaires aux tickets JIRA pour inclure des informations comme :
 
-Pour répondre à votre question concernant la validation en 2025 des RRR de 2024, la réponse est non. En effet, les RRR de 2024 validées en 2025 seront comptabilisées pour 2025. Depuis janvier 2023, les RRR ne sont plus validées rétroactivement. Désormais, une RRR est considérée comme validée uniquement lorsque l’ensemble des critères requis est rempli.
+La stratégie globale : Décrire les grandes lignes du plan pour l'évolution, en expliquant comment les différents éléments interagissent.
+Les requêtes SQL : Ajouter les requêtes ou scripts SQL nécessaires pour valider des données ou simuler des cas spécifiques.
+Les scénarios de tests : Inclure des cas de tests clairs, comme :
+Scénarios positifs (validation de la fonctionnalité attendue).
+Scénarios négatifs (gestion des erreurs ou cas limites).
+Préconditions et données nécessaires pour les tests.
+Documentation des dépendances : Mentionner si cette User Story dépend d'autres tâches ou services.
+Indications sur l’environnement : Expliquer où les tests doivent être exécutés (dev, staging, prod).
+Critères d'acceptation : Ajouter les critères spécifiques que l'implémentation doit respecter pour être validée.
+Autres suggestions pour une meilleure collaboration
+Liens vers des ressources :
+
+Ajouter des liens vers des documents (confluence, spécifications, diagrammes, etc.).
+Inclure des exemples concrets de cas métiers.
+Templates dans les commentaires : Créer un format standard pour faciliter la lecture. Par exemple :
+
+markdown
+Copier le code
+**Objectif :**
+[Description de l’objectif de l’US]
+
+**SQL à utiliser :**
+SELECT ... FROM ...
+
+markdown
+Copier le code
+
+**Scénarios de tests :**
+- [Scénario 1]
+- [Scénario 2]
+
+**Critères d'acceptation :**
+- [Critère 1]
+- [Critère 2]
+Utilisation des champs JIRA : Si JIRA le permet, créer des champs spécifiques pour :
+
+Les tests.
+Les dépendances.
+Les scripts SQL, afin de les centraliser au lieu de les mettre dans les commentaires.
+Suivi des mises à jour :
+
+Épingler les informations critiques ou fréquemment mises à jour dans un champ dédié ou un fichier lié.
+Indiquer clairement les parties modifiées (par exemple, versionner les scénarios de tests).
+Partage via des outils collaboratifs : Si possible, centraliser les stratégies, SQL, et scénarios dans un outil comme Confluence, puis inclure un lien vers cet espace dans JIRA. Cela évite de rendre les tickets trop longs.
+
+Ces approches garantissent que les développeurs, testeurs, et autres parties prenantes ont une vue complète et structurée sur ce qu’il faut implémenter et valider. Est-ce que vous souhaitez plus de détails sur l'une de ces propositions ?
