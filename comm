@@ -1,29 +1,7 @@
-Étape	Phase	Activité	Description	Responsable	Date de début	Date de fin	Priorité	Statut	Commentaires
-1	Analyse & Cadrage	Inventaire et audit de l’existant	Réaliser l’inventaire de tous les schémas, tables, vues, procédures… dans Teradata. Auditer les volumes et dépendances.	Équipe Data		JJ/MM/AAAA	Haute	Non démarré	
-2	Analyse & Cadrage	Définition du périmètre et des objectifs	Clarifier les SLA, la disponibilité, l’architecture cible Snowflake.	Chef de Projet		JJ/MM/AAAA	Haute	Non démarré	
-3	Analyse & Cadrage	Planification et gouvernance	Définir la feuille de route, les ressources, la méthode (big bang ou itérative).	Chef de Projet		JJ/MM/AAAA	Moyenne	Non démarré	
-4	Conception Archi	Conception de l’architecture Snowflake	Définir la structure des comptes (dev, test, prod), bases, schémas, rôles, etc.	Architecte Data		JJ/MM/AAAA	Haute	Non démarré	
-5	Conception Archi	Configuration et bonnes pratiques	Configurer Virtual Warehouses, chiffrement, rétention, gouvernance.	Architecte Data		JJ/MM/AAAA	Moyenne	Non démarré	
-6	Conception Archi	Création d’un environnement de test	Valider la connectivité Teradata → Snowflake, tester l’architecture.	Équipe Infra		JJ/MM/AAAA	Moyenne	Non démarré	
-7	Migration Schémas	Extraction du modèle Teradata	Obtenir définitions de tables, vues, index, macros, triggers.	Équipe Data		JJ/MM/AAAA	Haute	Non démarré	
-8	Migration Schémas	Création des schémas/tables dans Snowflake	Convertir les types de données, recréer vues et structures.	Équipe Data		JJ/MM/AAAA	Haute	Non démarré	
-9	Migration Schémas	Refonte des procédures stockées	Réécrire ou adapter les macros/procédures vers Snowflake (SQL/JS).	Équipe Data		JJ/MM/AAAA	Haute	Non démarré	
-10	Migration Schémas	Logique d’index	Analyser et remplacer la logique d’index par le micro-partitionnement Snowflake.	Architecte Data		JJ/MM/AAAA	Moyenne	Non démarré	
-11	Chargement & Transfert	Choix de la stratégie de migration	Opter pour un outil ETL/ELT ou des scripts, staging externe ou direct.	Équipe Data / Chef de Projet		JJ/MM/AAAA	Haute	Non démarré	
-12	Chargement & Transfert	Préparation des données sources	Extraire de Teradata, valider les formats (CSV, Parquet…).	Équipe Data		JJ/MM/AAAA	Haute	Non démarré	
-13	Chargement & Transfert	Chargement initial (Full Load)	Migrer la totalité des données historiques pour initialisation.	Équipe Data		JJ/MM/AAAA	Haute	Non démarré	
-14	Chargement & Transfert	Chargement incrémental (Delta)	Gérer les mises à jour (CDC : inserts, updates, deletes).	Équipe Data		JJ/MM/AAAA	Haute	Non démarré	
-15	Chargement & Transfert	Automatisation & orchestration	Mettre en place un scheduler (Airflow, Control-M) et séquencer.	Équipe DevOps		JJ/MM/AAAA	Moyenne	Non démarré	
-16	Tests & Validation	Tests de complétude	Comparer le nombre d’enregistrements, checksums… Teradata vs Snowflake.	Équipe QA		JJ/MM/AAAA	Haute	Non démarré	
-17	Tests & Validation	Tests de performance	Exécuter des requêtes clés, ajuster la taille du Virtual Warehouse.	Équipe QA / Architecte		JJ/MM/AAAA	Moyenne	Non démarré	
-18	Tests & Validation	Tests d’intégration	Vérifier la connexion avec outils BI, data science, ETL.	Équipe QA		JJ/MM/AAAA	Moyenne	Non démarré	
-19	Tests & Validation	Tests de sécurité et conformité	Valider rôles, accès, masquage, conformité GDPR/HIPAA.	Équipe Sécurité		JJ/MM/AAAA	Haute	Non démarré	
-20	Mise en Prod	Plan de bascule	Planifier la date/heure de migration, communiquer aux équipes.	Chef de Projet		JJ/MM/AAAA	Haute	Non démarré	
-21	Mise en Prod	Chargement final	Exécuter un dernier chargement (full ou delta) pour mise à jour finale.	Équipe Data		JJ/MM/AAAA	Haute	Non démarré	
-22	Mise en Prod	Bascule des applications	Pointer les outils BI, ETL, applications vers Snowflake.	Équipe Data / Ops		JJ/MM/AAAA	Haute	Non démarré	
-23	Stabilisation & Optimisation	Phase de stabilisation	Surveiller performances, consommation crédits, incidents.	Équipe Ops		JJ/MM/AAAA	Moyenne	Non démarré	
-24	Stabilisation & Optimisation	Optimisation continue	Ajuster la taille/nombre de Virtual Warehouses, optimiser requêtes.	Architecte Data		JJ/MM/AAAA	Moyenne	Non démarré	
-25	Stabilisation & Optimisation	Décommissionnement Teradata	Arrêter la plateforme Teradata, gérer les licences et coûts.	Direction IT		JJ/MM/AAAA	Faible	Non démarré	
-26	Documentation & REX	Documentation finale	Mise à jour de la doc d’architecture, procédures, référentiels.	Équipe Data / Chef de Projet		JJ/MM/AAAA	Moyenne	Non démarré	
-27	Documentation & REX	Formation et transfert de connaissances	Former équipes BI, Data, DevOps à Snowflake et aux bonnes pratiques.	Équipe Data / Chef de Projet		JJ/MM/AAAA	Moyenne	Non démarré	
-28	Documentation & REX	Rétrospective (REX)	Organiser un retour d’expérience global et identifier les axes d’amélioration.	Chef de Projet		JJ/MM/AAAA	Faible	Non démarré	
+SELECT 
+  DatabaseName, 
+  TableName, 
+  TableKind 
+FROM DBC.TablesV
+WHERE DatabaseName = 'MON_SCHEMA'
+ORDER BY TableName;
