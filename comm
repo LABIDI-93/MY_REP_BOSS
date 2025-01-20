@@ -1,7 +1,1 @@
-SELECT 
-  DatabaseName, 
-  TableName, 
-  TableKind 
-FROM DBC.TablesV
-WHERE DatabaseName = 'MON_SCHEMA'
-ORDER BY TableName;
+Lorsqu’un acteur change d’équipe, les portefeuilles qui lui sont rattachés basculent automatiquement vers sa nouvelle équipe. Il n’est donc pas possible qu’un acteur ait des portefeuilles répartis sur différentes équipes. La seule solution consiste à attribuer les portefeuilles de l’ancienne équipe à un autre acteur appartenant à cette dernière.
