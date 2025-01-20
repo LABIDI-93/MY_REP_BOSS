@@ -1,1 +1,16 @@
-Lorsqu’un acteur change d’équipe, les portefeuilles qui lui sont rattachés basculent automatiquement vers sa nouvelle équipe. Il n’est donc pas possible qu’un acteur ait des portefeuilles répartis sur différentes équipes. La seule solution consiste à attribuer les portefeuilles de l’ancienne équipe à un autre acteur appartenant à cette dernière.
+import pandas as pd
+
+# Charger les fichiers Excel
+file1 = 'file1.xlsx'
+file2 = 'file2.xlsx'
+
+df1 = pd.read_excel(file1)
+df2 = pd.read_excel(file2)
+
+# Comparer les fichiers
+differences = pd.concat([df1, df2]).drop_duplicates(keep=False)
+
+# Exporter les différences
+differences.to_excel('differences.xlsx', index=False)
+
+print("Les différences ont été exportées dans differences.xlsx.")
