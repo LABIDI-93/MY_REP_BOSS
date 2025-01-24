@@ -1,16 +1,1 @@
-import pandas as pd
-
-# Charger les fichiers Excel
-file1 = 'file1.xlsx'
-file2 = 'file2.xlsx'
-
-df1 = pd.read_excel(file1)
-df2 = pd.read_excel(file2)
-
-# Comparer les fichiers
-differences = pd.concat([df1, df2]).drop_duplicates(keep=False)
-
-# Exporter les différences
-differences.to_excel('differences.xlsx', index=False)
-
-print("Les différences ont été exportées dans differences.xlsx.")
+Un incident lié au traitement EER a été constaté le 24 janvier, en raison d'une erreur de syntaxe dans le script d'alimentation. Une résolution a été rapidement mise en œuvre, rétablissant la situation
