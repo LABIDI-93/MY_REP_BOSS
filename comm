@@ -1,1 +1,5 @@
-Un incident lié au traitement EER a été constaté le 24 janvier, en raison d'une erreur de syntaxe dans le script d'alimentation. Une résolution a été rapidement mise en œuvre, rétablissant la situation
+Bonjour,
+
+Suite à l'implémentation du nouveau CAR, "", nous avons identifié des anomalies affectant nos traitements au sein de l'application de Pilotage (XXX). Nous suspectons que l'origine du problème se situe au niveau de la table des portefeuilles "POS_POS".
+
+Voici un exemple d'une PM parmi celles qui fonctionnent correctement :
