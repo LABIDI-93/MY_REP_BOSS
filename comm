@@ -1,5 +1,1 @@
-Bonjour,
-
-Suite à l'implémentation du nouveau CAR, "", nous avons identifié des anomalies affectant nos traitements au sein de l'application de Pilotage (XXX). Nous suspectons que l'origine du problème se situe au niveau de la table des portefeuilles "POS_POS".
-
-Voici un exemple d'une PM parmi celles qui fonctionnent correctement :
+Après vérification effectuée ce matin, nous avons constaté que les PM, initialement disparus après la création du nouveau CCC, sont à nouveau disponibles. Cette réapparition est vraisemblablement due au traitement de fin de mois qui a actualisé nos bases. Nous vous prions donc d’abandonner la demande mentionnée dans mon précédent courriel. Merci pour votre aide.
