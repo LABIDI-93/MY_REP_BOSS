@@ -1,2 +1,1 @@
-SELECT CAST(MONTHS_BETWEEN(DateA, DateB) AS INTEGER) AS Difference_In_Months
-FROM your_table;
+CAST(ta_date AS DATE) (FORMAT 'DD/MM/YYYY') AS date_formatee
