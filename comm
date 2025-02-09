@@ -1,1 +1,11 @@
-CAST(ta_date AS DATE) (FORMAT 'DD/MM/YYYY') AS date_formatee
+SELECT 
+    DatabaseName AS Schema_Name,
+    TableName AS Table_Name,
+    ColumnName AS Column_Name
+FROM 
+    DBC.ColumnsV
+WHERE 
+    ColumnName = 'nom_du_champ'  -- Remplace 'nom_du_champ' par le nom de ton champ
+ORDER BY 
+    DatabaseName,
+    TableName;
