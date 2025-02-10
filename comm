@@ -1,11 +1,9 @@
-SELECT 
-    DatabaseName AS Schema_Name,
-    TableName AS Table_Name,
-    ColumnName AS Column_Name
-FROM 
-    DBC.ColumnsV
-WHERE 
-    ColumnName = 'nom_du_champ'  -- Remplace 'nom_du_champ' par le nom de ton champ
-ORDER BY 
-    DatabaseName,
-    TableName;
+Bonjour,
+
+Comme convenu via Teams, je te confirme que la liste des produits mentionnés dans la pièce jointe de ton mail existe bien dans l’indicateur BATMAN. J’ai réalisé un export Excel de cet indicateur, où la liste des produits correspond à ceux surlignés en jaune dans ton mail.
+
+Voici la liste :
+""""""
+
+Je vais donc procéder à la clôture de ce ticket.
+Merci.
