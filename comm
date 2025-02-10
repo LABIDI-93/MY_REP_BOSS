@@ -1,9 +1,1 @@
-Bonjour,
-
-Comme convenu via Teams, je te confirme que la liste des produits mentionnés dans la pièce jointe de ton mail existe bien dans l’indicateur BATMAN. J’ai réalisé un export Excel de cet indicateur, où la liste des produits correspond à ceux surlignés en jaune dans ton mail.
-
-Voici la liste :
-""""""
-
-Je vais donc procéder à la clôture de ce ticket.
-Merci.
+Dans ce premier lot de l'évolution, ce fichier Excel a pour seul objectif d’homologuer la partie alimentation. Seuls les montants RGGG sont agrégés et calculés pour le R/O. Les données provenant des trois fichiers ainsi que la partie PRIV sont exclues de ce calcul, mais restent présentes dans l'export Excel. Les tests se concentreront donc exclusivement sur ces éléments.
