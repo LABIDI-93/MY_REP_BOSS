@@ -1,7 +1,3 @@
-Bonjour,
+Ce changement complète le change XXX 2025, référencé sous la demande JIRA XXXX. Suite à l'exclusion des fichiers MAR, MARC, PRIV et PRIV de HHH des données objectivées R/O, ces derniers seront désormais intégrés uniquement dans l'export Excel. Désormais, la partie R/O portera exclusivement sur les données ART DAT de jhh, avec une fréquence Mensuel. Cependant, le métier a exprimé le besoin d’un rafraîchissement quotidien de l’indicateur.
 
-Après analyse, je te confirme que la courbe en haut, entourée en jaune, représente uniquement la production des contrats signés en février, correspondant aux produits de la liste des produits objectivés ci-dessous.
-
-En revanche, la courbe intitulée Répartition des demandes par produit inclut l’ensemble des produits, y compris ceux hors périmètre (non objectivés).
-
-La liste des produits objectivés et non objectivés nous a été fournie par le métier.
+Ainsi, ce changement aboutira à une mise à jour quotidienne des informations objectivées et de leur export Excel, tandis que les fichiers  seront rafraîchis dans l’export Excel sur une base mensuelle.
