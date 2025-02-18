@@ -1,3 +1,14 @@
-Ce changement complète le change XXX 2025, référencé sous la demande JIRA XXXX. Suite à l'exclusion des fichiers MAR, MARC, PRIV et PRIV de HHH des données objectivées R/O, ces derniers seront désormais intégrés uniquement dans l'export Excel. Désormais, la partie R/O portera exclusivement sur les données ART DAT de jhh, avec une fréquence Mensuel. Cependant, le métier a exprimé le besoin d’un rafraîchissement quotidien de l’indicateur.
+Bonjour,
 
-Ainsi, ce changement aboutira à une mise à jour quotidienne des informations objectivées et de leur export Excel, tandis que les fichiers  seront rafraîchis dans l’export Excel sur une base mensuelle.
+J’ai une interrogation concernant la situation suivante et j’aimerais savoir si tu peux m’éclairer.
+
+J’ai exporté un fichier Excel en version bêta et réalisé un tableau croisé dynamique dessus. J’ai constaté que les résultats obtenus sont presque identiques à la table des Tiers, comme indiqué dans le fichier ci-joint.
+
+En revanche, ces résultats présentent un écart significatif avec ceux affichés sur l’écran DAT. Si ma démarche est correcte, nous devrions retrouver les mêmes montants sur :
+
+Écran : Montant Mois M des ENT niveau SGRF
+Somme des encours ENT source SGRF (uniquement ARTDAT) mois de décembre 2024
+Somme des encours en Entreprise SGRF pour décembre
+Cet écart pourrait-il être lié à des règles de gestion (RG) dans MicroStrategy que je ne peux pas visualiser à mon niveau, ou s’agit-il d’un problème préexistant avant l’évolution ?
+
+Merci par avance pour ton retour.
