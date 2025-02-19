@@ -1,14 +1,3 @@
-Bonjour,
+Comme convenu lors de notre échange sur Teams, je te confirme, par ce mail, le besoin d'accès aux données BOC, essentiel pour le pilotage de la clientèle commerciale.
 
-J’ai une interrogation concernant la situation suivante et j’aimerais savoir si tu peux m’éclairer.
-
-J’ai exporté un fichier Excel en version bêta et réalisé un tableau croisé dynamique dessus. J’ai constaté que les résultats obtenus sont presque identiques à la table des Tiers, comme indiqué dans le fichier ci-joint.
-
-En revanche, ces résultats présentent un écart significatif avec ceux affichés sur l’écran DAT. Si ma démarche est correcte, nous devrions retrouver les mêmes montants sur :
-
-Écran : Montant Mois M des ENT niveau SGRF
-Somme des encours ENT source SGRF (uniquement ARTDAT) mois de décembre 2024
-Somme des encours en Entreprise SGRF pour décembre
-Cet écart pourrait-il être lié à des règles de gestion (RG) dans MicroStrategy que je ne peux pas visualiser à mon niveau, ou s’agit-il d’un problème préexistant avant l’évolution ?
-
-Merci par avance pour ton retour.
+Merci d'avance pour ton retour.
