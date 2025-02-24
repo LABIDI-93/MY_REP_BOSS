@@ -1,3 +1,14 @@
-La demande est envoyée au profil CHAPTER du bénéficiaire pour validation.
+Le 5 février 2025, des suppressions par mégarde des équipes Cognac et La Rochelle ont entraîné l'affectation de leurs acteurs respectifs dans la catégorie des acteurs non affectés (par défaut).
 
-NB : Un justificatif par mail peut être requis pour appuyer la demande d'accès. Pour l'écran WHATS, il convient d'adresser un mail au CHAPTER en précisant qu'il s'agit d'une demande d'accès visant à examiner les montants de facturation sur les TPE, dans le cadre du pilotage de l'activité commerciale au sein du réseau.
+Le 17 février 2025, ces deux équipes ont été recréées avec les mêmes acteurs. Ainsi, nous nous retrouvons actuellement avec deux équipes *Cognac* et deux équipes *La Rochelle* :  
+- Cognac créée le 17/02/2025 (nouvelle) : contient la production des acteurs affectés depuis cette date.  
+- Cognac supprimée le 05/02/2025 (ancienne) : contient la production des acteurs affectés jusqu'à cette date.  
+
+La situation est identique pour La Rochelle. Il est important de noter que les acteurs sont restés les mêmes avant et après la suppression, sans départ ni nouvelle arrivée.
+
+Constatation : 
+Il est nécessaire d'intervenir sur le référentiel des équipes afin de rattacher les productions des équipes supprimées à celles nouvellement créées.
+
+Action à réaliser :
+
+Des mises à jour (updates) sur la table des liens équipes sont requises, en veillant à effectuer des sauvegardes préalables pour garantir la possibilité d'un retour en arrière si nécessaire.
