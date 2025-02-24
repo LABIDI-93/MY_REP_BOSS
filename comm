@@ -1,7 +1,12 @@
-Contexte et Objectif :
-La requête suivante permet d'identifier, depuis la table des liens acteurs-équipes, l'ensemble des acteurs rattachés à l'ancienne équipe, ainsi que leur équipe actuelle active (top_courant = 1).
-
-L'objectif est de mettre à jour la table physique en ajustant la date de début de validité de chaque acteur dans son équipe active, en la fixant à la date de début de l'ancienne équipe supprimée par erreur.
-
-Impact :
-Cette table étant utilisée pour rattacher la production à un acteur, une équipe et une direction, selon des critères incluant la date de réalisation de la production (qui doit se situer entre les dates de début et de fin de validité de l'acteur dans l'équipe), cette mise à jour permettra ainsi de transférer la production de l'ancienne équipe supprimée vers la nouvelle équipe créée.
+UPDATE ACTR_EQUI AS target
+FROM (
+    SELECT CLE_ACTR, DT_VAL_DEB
+    FROM ACTR_EQUI
+    WHERE CLE_ACTR IN (12112, 22867, 10977, 19676)
+      AND TOP_COURANT = 0
+      AND CLE_EQ = 210620010
+) AS source
+SET target.DT_VAL_DEB = source.DT_VAL_DEB
+WHERE target.CLE_ACTR = source.CLE_ACTR
+  AND target.TOP_COURANT = 1
+  AND target.CLE_EQ = 210620014;
