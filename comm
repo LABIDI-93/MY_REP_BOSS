@@ -1,1 +1,13 @@
-Nous constatons que les dates de début de validité pour chaque acteur sont identiques entre les deux équipes (clé équipe). Cette situation constitue une source d'erreur, car une prestation couvrant les deux intervalles (dates de début et de fin des anciennes et nouvelles équipes) pourrait être comptabilisée deux fois, entraînant ainsi une violation de la contrainte d'intégrité (index unique). Pour éviter cela, il est nécessaire de supprimer la ligne correspondant à l'ancienne équipe.
+Bonjour,
+
+Je vous remercie pour votre message. Je suis actuellement absent(e) du 26 février au 4 mars inclus et ne pourrai pas consulter mes e-mails durant cette période.
+
+En cas d'urgence, veuillez contacter l'équipe à l'adresse suivante : hdhddh@hhehd.com.
+
+Je vous répondrai dès mon retour.
+
+Cordialement,
+[Votre nom]
+[Votre poste]
+[Nom de l'entreprise]
+[Coordonnées, si nécessaire]
