@@ -1,12 +1,1 @@
-UPDATE ACTR_EQUI AS target
-FROM (
-    SELECT CLE_ACTR, DT_VAL_DEB
-    FROM ACTR_EQUI
-    WHERE CLE_ACTR IN (12112, 22867, 10977, 19676)
-      AND TOP_COURANT = 0
-      AND CLE_EQ = 210620010
-) AS source
-SET target.DT_VAL_DEB = source.DT_VAL_DEB
-WHERE target.CLE_ACTR = source.CLE_ACTR
-  AND target.TOP_COURANT = 1
-  AND target.CLE_EQ = 210620014;
+Nous constatons que les dates de début de validité pour chaque acteur sont identiques entre les deux équipes (clé équipe). Cette situation constitue une source d'erreur, car une prestation couvrant les deux intervalles (dates de début et de fin des anciennes et nouvelles équipes) pourrait être comptabilisée deux fois, entraînant ainsi une violation de la contrainte d'intégrité (index unique). Pour éviter cela, il est nécessaire de supprimer la ligne correspondant à l'ancienne équipe.
