@@ -1,3 +1,5 @@
-SELECT HASHMD5(CAST( (XMLAGG(id || '|' || colonne1 || '|' || colonne2 ORDER BY id) AS VARCHAR(10000)) ))
-AS hash_value
-FROM schéma_A.table_X;
+SELECT DatabaseName, TableName
+FROM DBC.TablesV
+WHERE TableKind = 'V'  -- 'V' signifie View (Vue)
+AND DatabaseName = 'XXXXX'
+ORDER BY TableName;
