@@ -1,2 +1,3 @@
-SELECT MD5(STRING_AGG(id || '|' || colonne1 || '|' || colonne2 ORDER BY id)) AS hash_value
+SELECT HASHMD5(CAST( (XMLAGG(id || '|' || colonne1 || '|' || colonne2 ORDER BY id) AS VARCHAR(10000)) ))
+AS hash_value
 FROM schéma_A.table_X;
