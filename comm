@@ -1,5 +1,4 @@
-SELECT DatabaseName, TableName
-FROM DBC.TablesV
-WHERE TableKind = 'V'  -- 'V' signifie View (Vue)
-AND DatabaseName = 'XXXXX'
-ORDER BY TableName;
+SELECT *
+FROM ta_table
+WHERE ta_colonne <= 
+      (SELECT MAX(ta_colonne (DATE)) FROM ta_table) + INTERVAL '23:59:59.999999' HOUR TO SECOND;
