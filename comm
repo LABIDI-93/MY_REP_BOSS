@@ -1,4 +1,12 @@
-SELECT *
-FROM ta_table
-WHERE ta_colonne <= 
-      (SELECT MAX(ta_colonne (DATE)) FROM ta_table) + INTERVAL '23:59:59.999999' HOUR TO SECOND;
+Hello [Nom du TSE],
+
+Suite à nos échanges et aux écarts de volumétrie initialement constatés, j’ai effectué des vérifications approfondies pour m’assurer que tout est en ordre.
+
+J’ai analysé en détail le processus d’alimentation de l’indicateur des crédits, en retraçant les données depuis la staging jusqu’à la table finale utilisée pour la restitution dans le dashboard. Tout semble cohérent à chaque étape.
+J’ai également pris en compte les éléments que tu avais mentionnés, notamment le fait que certaines données de l’arrêté de janvier 2025 n’étaient peut-être pas encore présentes dans la sauvegarde du 3 février (traitement mensuel non encore passé).
+Les données copiées en mode snapshot semblent bien refléter l’état attendu et permettront de dérouler les tests dans de bonnes conditions.
+Au vu de ces éléments, je considère que les tests de mon côté sont terminés, et je valide la cohérence des données pour la suite du projet.
+
+Dis-moi si cela te convient ou si tu veux que je pousse une autre vérification.
+
+Merci,
