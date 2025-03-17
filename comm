@@ -1,1 +1,4 @@
-L'homologation de l'évolution CRE2025 côté RRR est terminée. Nous vous donnons la main sur la version BETA pour vos tests. Actuellement, les données disponibles datent d'hier, mais nous prévoyons un rafraîchissement demain matin pour aligner l'environnement avec la production. Je reste disponible pour toute clarification ou question.
+SELECT DatabaseName, TableName, ColumnName
+FROM DBC.ColumnsV
+WHERE ColumnName = 'ACTR'
+ORDER BY DatabaseName, TableName;
