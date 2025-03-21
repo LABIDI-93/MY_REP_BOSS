@@ -1,11 +1,9 @@
-COALESCE(
-    CASE 
-        WHEN LIMITE_ENG.CLE_PROD_ELMNT IN (6873, 4574, 6387, 6870, 6386, 6872) 
-            AND LIMITE_ENG.MT_NOML_INIT IS NOT NULL THEN LIMITE_ENG.MT_NOML_INIT
-        WHEN LIMITE_ENG.CLE_SRCE_FOURN_ENTRPT IN (41, 221) 
-            THEN LIMITE_ENG.MT_NOML_INIT_EUR 
-        ELSE LIMITE_ENG.MT_NOML_INIT 
-    END, 
-    PREST_PRET.MT_RECALC, 
-    CBE.CBE_MT_NOML_ACTUAL
-) / 1000
+Hello [Prénom du responsable],
+
+J’ai lu qu’un alternant avait détourné 65 000 € dans une banque…
+Bon, le nôtre n’est même pas encore arrivé que je commence déjà à surveiller mon portefeuille 😅
+
+Allez, je plaisante (à moitié 😄)
+Bienvenue à lui bientôt… avec un petit rappel sur la clause "pas de braquage", évidemment 😉
+
+À+
