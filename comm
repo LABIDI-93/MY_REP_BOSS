@@ -1,1 +1,78 @@
-"Les crédits structurés sont soumis selon six clés produit (xx, xx, xx, xx, xx, xx) depuis les sources CM et CJ. Le métier a constaté que certains crédits ne remontaient pas dans l’application. Après analyse, il a été décidé de récupérer, pour ces codes produit, le montant actualisé lorsque le montant initial n’est pas valorisé. Cette modification pourrait permettre d’intégrer davantage de crédits dans l’application."
+Sub ComparerPrestations()
+
+    Dim wsBeta As Worksheet, wsProd As Worksheet
+    Dim wsBetaAbProd As Worksheet, wsProdAbBeta As Worksheet
+    Dim lastRowBeta As Long, lastRowProd As Long
+    Dim idBetaDict As Object, idProdDict As Object
+    Dim i As Long, id As String
+    Dim betaRow As Range, prodRow As Range
+    Dim outputRow As Long
+
+    Set wsBeta = ThisWorkbook.Sheets("Données_Beta")
+    Set wsProd = ThisWorkbook.Sheets("Données_Prod")
+
+    ' Créer les nouvelles feuilles (ou les réinitialiser si elles existent déjà)
+    On Error Resume Next
+    Application.DisplayAlerts = False
+    Worksheets("BETA_Ab_PROD").Delete
+    Worksheets("PROD_Ab_BETA").Delete
+    Application.DisplayAlerts = True
+    On Error GoTo 0
+
+    Set wsBetaAbProd = ThisWorkbook.Sheets.Add(After:=wsProd)
+    wsBetaAbProd.Name = "BETA_Ab_PROD"
+
+    Set wsProdAbBeta = ThisWorkbook.Sheets.Add(After:=wsBetaAbProd)
+    wsProdAbBeta.Name = "PROD_Ab_BETA"
+
+    ' Initialiser les dictionnaires
+    Set idBetaDict = CreateObject("Scripting.Dictionary")
+    Set idProdDict = CreateObject("Scripting.Dictionary")
+
+    ' Récupérer les IDs de Données_Beta
+    lastRowBeta = wsBeta.Cells(wsBeta.Rows.Count, "N").End(xlUp).Row
+    For i = 2 To lastRowBeta
+        id = Trim(wsBeta.Cells(i, "N").Value)
+        If Len(id) > 0 Then
+            If Not idBetaDict.exists(id) Then
+                idBetaDict.Add id, i
+            End If
+        End If
+    Next i
+
+    ' Récupérer les IDs de Données_Prod
+    lastRowProd = wsProd.Cells(wsProd.Rows.Count, "N").End(xlUp).Row
+    For i = 2 To lastRowProd
+        id = Trim(wsProd.Cells(i, "N").Value)
+        If Len(id) > 0 Then
+            If Not idProdDict.exists(id) Then
+                idProdDict.Add id, i
+            End If
+        End If
+    Next i
+
+    ' Copier l'en-tête
+    wsBeta.Rows(1).Copy Destination:=wsBetaAbProd.Rows(1)
+    wsProd.Rows(1).Copy Destination:=wsProdAbBeta.Rows(1)
+
+    ' Chercher les ID dans Beta mais pas dans Prod
+    outputRow = 2
+    For Each id In idBetaDict.Keys
+        If Not idProdDict.exists(id) Then
+            wsBeta.Rows(idBetaDict(id)).Copy Destination:=wsBetaAbProd.Rows(outputRow)
+            outputRow = outputRow + 1
+        End If
+    Next id
+
+    ' Chercher les ID dans Prod mais pas dans Beta
+    outputRow = 2
+    For Each id In idProdDict.Keys
+        If Not idBetaDict.exists(id) Then
+            wsProd.Rows(idProdDict(id)).Copy Destination:=wsProdAbBeta.Rows(outputRow)
+            outputRow = outputRow + 1
+        End If
+    Next id
+
+    MsgBox "Comparaison terminée avec succès !", vbInformation
+
+End Sub
