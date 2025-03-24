@@ -1,5 +1,26 @@
-Salut, j’ai une petite question :
-Je dois créer un job pour automatiser l’intégration des fichiers envoyés par le métier.
-Pour cela, est-ce que je dois paramétrer myFileGetWay afin qu’ils puissent y déposer leurs fichiers ?
-Ensuite, mon idée est de mettre en place un job shell cyclique qui détectera l’arrivée des fichiers et lancera leur intégration dans la table PPP concernée.
-Est-ce que cette démarche te semble correcte ?
+Actuellement, l’application est partiellement alimentée par des fichiers transmis par le métier.
+Il s’agit de cinq fichiers, reçus à des fréquences variables, mais généralement plusieurs fois par mois.
+
+À chaque réception, l’équipe RBS prend en charge les étapes suivantes :
+
+Enregistrement du fichier en local
+
+Conversion de l’encodage du fichier au format ANSI
+
+Vérification de la période concernée pour s’assurer qu’elle correspond à la période de chargement souhaitée
+
+Compression du fichier au format ZIP
+
+Création d’un ticket de demande de dépôt sur le serveur et dans le répertoire approprié
+
+Une fois le fichier déposé par l’équipe gestionnaire :
+
+Création d’un second ticket, correctement paramétré,
+
+Déclenchement du script permettant l’alimentation de la table PPP concernée
+
+Vérification du bon déroulement du chargement dans la base de données
+
+Mise à jour du CUB (indicateur associé) en lien avec le fichier
+
+Notification au métier demandeur : confirmation du bon déroulement ou indication des actions à entreprendre en cas d’erreur
