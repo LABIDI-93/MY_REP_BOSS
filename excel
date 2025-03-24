@@ -1,13 +1,13 @@
-Les tâches décrites précédemment sont répétitives et impliquent l’intervention de trois équipes :
+C’est via cette application que le métier pourra désormais déposer ses fichiers.
 
-Le métier, en tant que producteur du fichier
+Pour cela, il sera nécessaire de :
 
-L’équipe RRR, chargée de valider le contenu, de paramétrer le traitement et de créer les tickets nécessaires au dépôt et à l'intégration
+habiliter les utilisateurs métier, en leur accordant les droits d’accès requis à l’outil,
 
-Les gestionnaires, qui exécutent les demandes de RBS et communiquent les résultats
+leur permettre de configurer et déposer les fichiers dans le répertoire approprié.
 
-Ainsi, chaque fichier mobilise trois équipes, ce qui génère une consommation de bande passante humaine importante et accroît les risques d’erreurs liés à la nature répétitive de ces opérations.
+Il reviendra également à l’équipe RRR de :
 
-La solution envisagée consiste à automatiser le traitement de ces fichiers à la demande, sans intervention des équipes RRR ni gestionnaires.
+former le métier à l’utilisation de l’application,
 
-L’objectif de ce document est donc de proposer une solution technique permettant au métier de déposer un fichier, parmi les cinq mentionnés précédemment, et de voir son contenu automatiquement intégré dans l’application PPP, de manière fluide et autonome.
+et de fournir une documentation détaillée, décrivant pas à pas la procédure à suivre pour effectuer correctement le dépôt de fichier.
