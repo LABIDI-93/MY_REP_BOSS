@@ -1,13 +1,1 @@
-C’est via cette application que le métier pourra désormais déposer ses fichiers.
-
-Pour cela, il sera nécessaire de :
-
-habiliter les utilisateurs métier, en leur accordant les droits d’accès requis à l’outil,
-
-leur permettre de configurer et déposer les fichiers dans le répertoire approprié.
-
-Il reviendra également à l’équipe RRR de :
-
-former le métier à l’utilisation de l’application,
-
-et de fournir une documentation détaillée, décrivant pas à pas la procédure à suivre pour effectuer correctement le dépôt de fichier.
+Comme pour tout objectif dans l'application, une nouvelle ligne de suivi doit être créée. C’est au sein de cette ligne que sera renseigné l’objectif (en montant, dans ce cas), lequel servira de dénominateur pour le calcul du réalisé. L’identifiant technique de cette ligne de suivi est XXXX.
