@@ -1,1 +1,1 @@
-Comme pour tout objectif dans l'application, une nouvelle ligne de suivi doit être créée. C’est au sein de cette ligne que sera renseigné l’objectif (en montant, dans ce cas), lequel servira de dénominateur pour le calcul du réalisé. L’identifiant technique de cette ligne de suivi est XXXX.
+En résumé, une ligne de suivi permet d’indiquer, pour un marché donné, le nombre ou le montant attendu pour un produit avant la fin de l’exercice. En l’occurrence, la ligne de suivi créée servira à calculer le montant à réaliser pour les trois marchés, sur l’ensemble des produits.
