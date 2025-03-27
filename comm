@@ -4,14 +4,15 @@ Sub ComparerPrestations()
     Dim wsBetaAbProd As Worksheet, wsProdAbBeta As Worksheet
     Dim lastRowBeta As Long, lastRowProd As Long
     Dim idBetaDict As Object, idProdDict As Object
-    Dim i As Long, id As String
-    Dim betaRow As Range, prodRow As Range
-    Dim outputRow As Long
+    Dim i As Long
+    Dim id As Variant
+    Dim montantBeta As Double, montantProd As Double
+    Dim outputRowBeta As Long, outputRowProd As Long
 
     Set wsBeta = ThisWorkbook.Sheets("Données_Beta")
     Set wsProd = ThisWorkbook.Sheets("Données_Prod")
 
-    ' Créer les nouvelles feuilles (ou les réinitialiser si elles existent déjà)
+    ' Supprimer les feuilles si elles existent déjà
     On Error Resume Next
     Application.DisplayAlerts = False
     Worksheets("BETA_Ab_PROD").Delete
@@ -19,6 +20,7 @@ Sub ComparerPrestations()
     Application.DisplayAlerts = True
     On Error GoTo 0
 
+    ' Créer les feuilles de sortie
     Set wsBetaAbProd = ThisWorkbook.Sheets.Add(After:=wsProd)
     wsBetaAbProd.Name = "BETA_Ab_PROD"
 
@@ -29,50 +31,48 @@ Sub ComparerPrestations()
     Set idBetaDict = CreateObject("Scripting.Dictionary")
     Set idProdDict = CreateObject("Scripting.Dictionary")
 
-    ' Récupérer les IDs de Données_Beta
+    ' Remplir dictionnaire depuis Données_Beta (clé = ID, valeur = ligne)
     lastRowBeta = wsBeta.Cells(wsBeta.Rows.Count, "N").End(xlUp).Row
     For i = 2 To lastRowBeta
         id = Trim(wsBeta.Cells(i, "N").Value)
         If Len(id) > 0 Then
-            If Not idBetaDict.exists(id) Then
-                idBetaDict.Add id, i
-            End If
+            idBetaDict(id) = i
         End If
     Next i
 
-    ' Récupérer les IDs de Données_Prod
+    ' Remplir dictionnaire depuis Données_Prod (clé = ID, valeur = ligne)
     lastRowProd = wsProd.Cells(wsProd.Rows.Count, "N").End(xlUp).Row
     For i = 2 To lastRowProd
         id = Trim(wsProd.Cells(i, "N").Value)
         If Len(id) > 0 Then
-            If Not idProdDict.exists(id) Then
-                idProdDict.Add id, i
-            End If
+            idProdDict(id) = i
         End If
     Next i
 
-    ' Copier l'en-tête
+    ' Copier les en-têtes
     wsBeta.Rows(1).Copy Destination:=wsBetaAbProd.Rows(1)
     wsProd.Rows(1).Copy Destination:=wsProdAbBeta.Rows(1)
 
-    ' Chercher les ID dans Beta mais pas dans Prod
-    outputRow = 2
+    outputRowBeta = 2
+    outputRowProd = 2
+
+    ' Comparer les montants pour les ID communs
     For Each id In idBetaDict.Keys
-        If Not idProdDict.exists(id) Then
-            wsBeta.Rows(idBetaDict(id)).Copy Destination:=wsBetaAbProd.Rows(outputRow)
-            outputRow = outputRow + 1
+        If idProdDict.exists(id) Then
+            montantBeta = wsBeta.Cells(idBetaDict(id), "U").Value
+            montantProd = wsProd.Cells(idProdDict(id), "U").Value
+            
+            If Round(montantBeta, 2) <> Round(montantProd, 2) Then
+                ' Différences de montant → copier dans les deux feuilles
+                wsBeta.Rows(idBetaDict(id)).Copy Destination:=wsBetaAbProd.Rows(outputRowBeta)
+                outputRowBeta = outputRowBeta + 1
+
+                wsProd.Rows(idProdDict(id)).Copy Destination:=wsProdAbBeta.Rows(outputRowProd)
+                outputRowProd = outputRowProd + 1
+            End If
         End If
     Next id
 
-    ' Chercher les ID dans Prod mais pas dans Beta
-    outputRow = 2
-    For Each id In idProdDict.Keys
-        If Not idBetaDict.exists(id) Then
-            wsProd.Rows(idProdDict(id)).Copy Destination:=wsProdAbBeta.Rows(outputRow)
-            outputRow = outputRow + 1
-        End If
-    Next id
-
-    MsgBox "Comparaison terminée avec succès !", vbInformation
+    MsgBox "Comparaison des montants terminée avec succès !", vbInformation
 
 End Sub
