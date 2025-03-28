@@ -1,3 +1,13 @@
-Salut,
-Je pense qu’il y a eu un chevauchement sur la version Git de la procédure crédit. En comparant les environnements prod et bêta, aucune différence n’apparaît, comme si les modifications de Pierre avaient été écrasées.
-Pouvez-vous regarder cela ensemble pour comprendre ce qu’il s’est passé, s’il vous plaît ?
+Veuillez trouver ci-joint un fichier contenant deux nouvelles colonnes en fin de tableau :
+
+date_reporting_nouvelle : correspond à la nouvelle date mise en place suite à l’évolution,
+
+date_ouverture_ancienne : correspond à l’ancienne date utilisée avant l’évolution.
+
+
+
+
+
+
+
+
