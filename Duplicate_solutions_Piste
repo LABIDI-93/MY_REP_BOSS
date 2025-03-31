@@ -1,1 +1,7 @@
-Merci pour ton retour. Nous appliquerons la règle de gestion que tu viens de valider. En revanche, je propose de livrer cette évolution dans un second temps, afin de ne pas retarder davantage la mise en service de RDG 2025.
+Le traitement de crédit est réentrant : à chaque exécution, les crédits promoteurs sont purgés de la base PIXX puis rechargés depuis leur source, à savoir la table des prestations de CMMM.
+
+Ainsi, lorsqu’un crédit est prolongé, sa mise à jour dans CMMM entraîne une nouvelle date de reporting, généralement postérieure à la date initiale de prestation. Lors du prochain lancement, PIXX détecte cette évolution et retient alors la date de reporting.
+
+En revanche, si la prolongation conduit à une date antérieure à celle de la prestation, le programme conservera la date de prestation, jugée plus récente.
+
+Cela dit, je ne comprends pas dans quel contexte une prestation serait reportée à une date antérieure à l'originale. As-tu des éléments à ce sujet ?
