@@ -1,13 +1,9 @@
-Veuillez trouver ci-joint un fichier contenant deux nouvelles colonnes en fin de tableau :
+Bonjour,
 
-date_reporting_nouvelle : correspond à la nouvelle date mise en place suite à l’évolution,
+Merci pour ton retour. Je note que nous ne devons pas prendre en compte la date de reporting pour ce crédit.
 
-date_ouverture_ancienne : correspond à l’ancienne date utilisée avant l’évolution.
+Actuellement, 139 crédits dans Béta sont dans le même cas (voir liste en pièce jointe).
 
+Souhaites-tu que nous ajoutions une règle de gestion stipulant que, pour chaque prestation appartenant au groupe concerné, si la date de reporting est inférieure à la date de prestation, alors nous retenons la date de prestation ; sinon, nous conservons la date de reporting ?
 
-
-
-
-
-
-
+Merci d’avance.
