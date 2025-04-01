@@ -1,7 +1,79 @@
-Le traitement de crédit est réentrant : à chaque exécution, les crédits promoteurs sont purgés de la base PIXX puis rechargés depuis leur source, à savoir la table des prestations de CMMM.
+dans le code VBA suivant, fais les changement nécessaire pour faire en sorte, au lieu de chercher les ID Prestation absent dans un onglet et dans l'autre, faut comparer pour chaque Id Prestation (colonne N) son Montant (KEUR) correspondant (colonne U) et pour ceux ou les montant sont différents remontent les dans les onglet PROD_Ab_BETA et BETA_Ab_PROD", Sub ComparerPrestations()
 
-Ainsi, lorsqu’un crédit est prolongé, sa mise à jour dans CMMM entraîne une nouvelle date de reporting, généralement postérieure à la date initiale de prestation. Lors du prochain lancement, PIXX détecte cette évolution et retient alors la date de reporting.
+    Dim wsBeta As Worksheet, wsProd As Worksheet
+    Dim wsBetaAbProd As Worksheet, wsProdAbBeta As Worksheet
+    Dim lastRowBeta As Long, lastRowProd As Long
+    Dim idBetaDict As Object, idProdDict As Object
+    Dim i As Long
+    id As Variant
+    Dim betaRow As Range, prodRow As Range
+    Dim outputRow As Long
 
-En revanche, si la prolongation conduit à une date antérieure à celle de la prestation, le programme conservera la date de prestation, jugée plus récente.
+    Set wsBeta = ThisWorkbook.Sheets("Données_Beta")
+    Set wsProd = ThisWorkbook.Sheets("Données_Prod")
 
-Cela dit, je ne comprends pas dans quel contexte une prestation serait reportée à une date antérieure à l'originale. As-tu des éléments à ce sujet ?
+    ' Créer les nouvelles feuilles (ou les réinitialiser si elles existent déjà)
+    On Error Resume Next
+    Application.DisplayAlerts = False
+    Worksheets("BETA_Ab_PROD").Delete
+    Worksheets("PROD_Ab_BETA").Delete
+    Application.DisplayAlerts = True
+    On Error GoTo 0
+
+    Set wsBetaAbProd = ThisWorkbook.Sheets.Add(After:=wsProd)
+    wsBetaAbProd.Name = "BETA_Ab_PROD"
+
+    Set wsProdAbBeta = ThisWorkbook.Sheets.Add(After:=wsBetaAbProd)
+    wsProdAbBeta.Name = "PROD_Ab_BETA"
+
+    ' Initialiser les dictionnaires
+    Set idBetaDict = CreateObject("Scripting.Dictionary")
+    Set idProdDict = CreateObject("Scripting.Dictionary")
+
+    ' Récupérer les IDs de Données_Beta
+    lastRowBeta = wsBeta.Cells(wsBeta.Rows.Count, "N").End(xlUp).Row
+    For i = 2 To lastRowBeta
+        id = Trim(wsBeta.Cells(i, "N").Value)
+        If Len(id) > 0 Then
+            If Not idBetaDict.exists(id) Then
+                idBetaDict.Add id, i
+            End If
+        End If
+    Next i
+
+    ' Récupérer les IDs de Données_Prod
+    lastRowProd = wsProd.Cells(wsProd.Rows.Count, "N").End(xlUp).Row
+    For i = 2 To lastRowProd
+        id = Trim(wsProd.Cells(i, "N").Value)
+        If Len(id) > 0 Then
+            If Not idProdDict.exists(id) Then
+                idProdDict.Add id, i
+            End If
+        End If
+    Next i
+
+    ' Copier l'en-tête
+    wsBeta.Rows(1).Copy Destination:=wsBetaAbProd.Rows(1)
+    wsProd.Rows(1).Copy Destination:=wsProdAbBeta.Rows(1)
+
+    ' Chercher les ID dans Beta mais pas dans Prod
+    outputRow = 2
+    For Each id In idBetaDict.Keys
+        If Not idProdDict.exists(id) Then
+            wsBeta.Rows(idBetaDict(id)).Copy Destination:=wsBetaAbProd.Rows(outputRow)
+            outputRow = outputRow + 1
+        End If
+    Next id
+
+    ' Chercher les ID dans Prod mais pas dans Beta
+    outputRow = 2
+    For Each id In idProdDict.Keys
+        If Not idBetaDict.exists(id) Then
+            wsProd.Rows(idProdDict(id)).Copy Destination:=wsProdAbBeta.Rows(outputRow)
+            outputRow = outputRow + 1
+        End If
+    Next id
+
+    MsgBox "Comparaison terminée avec succès !", vbInformation
+
+End Sub" 
