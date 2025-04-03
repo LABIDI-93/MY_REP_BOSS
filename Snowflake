@@ -1,14 +1,4 @@
-Mise en production
-C’est l’action technique de déployer le dashboard dans l’environnement de production (serveur ou plateforme accessible aux utilisateurs finaux).
-Cela signifie que le produit est prêt d’un point de vue technique :
-Le code est stable,
-Les connexions aux sources de données sont établies,
-Les accès sont configurés.
-⚠️ Cela ne veut pas forcément dire que les utilisateurs y ont accès immédiatement ou que l'outil est officiellement utilisé.
-
-Mise en service
-C’est l’étape suivante : c’est le lancement officiel auprès des utilisateurs. Cela signifie :
-Le dashboard est accessible aux utilisateurs finaux,
-La communication de lancement a été faite,
-Les utilisateurs sont formés ou informés,
-Le support est prêt à répondre aux questions.
+Bonjour,
+Je viens de finaliser les modifications nécessaires dans le script d’alimentation crédit. Vous trouverez dans le fichier joint le code mis à jour, accompagné de tests de non-régression (non exhaustifs) et de tests de validation de la nouvelle règle de gestion.
+Pourriez-vous y jeter un œil ? Si tout est bon, merci de l’embarquer et de relancer l’alimentation des cubes afin que je puisse tester l’ensemble de l’indicateur crédit.
+Merci !
