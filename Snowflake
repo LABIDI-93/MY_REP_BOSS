@@ -1,4 +1,3 @@
 Bonjour,
-Je viens de finaliser les modifications nécessaires dans le script d’alimentation crédit. Vous trouverez dans le fichier joint le code mis à jour, accompagné de tests de non-régression (non exhaustifs) et de tests de validation de la nouvelle règle de gestion.
-Pourriez-vous y jeter un œil ? Si tout est bon, merci de l’embarquer et de relancer l’alimentation des cubes afin que je puisse tester l’ensemble de l’indicateur crédit.
-Merci !
+L’évolution des crédits structurés est désormais disponible dans Bêta. J’ai effectué des tests qui se sont révélés concluants. À titre d’exemple, pour le conseiller XXX YYY, les montants des crédits dans Bêta sont supérieurs à ceux en production, grâce à la remontée de deux crédits structurés liée à cette évolution.
+Nous vous laissons la main pour effectuer vos propres tests.
