@@ -1,79 +1,98 @@
-dans le code VBA suivant, fais les changement nécessaire pour faire en sorte, au lieu de chercher les ID Prestation absent dans un onglet et dans l'autre, faut comparer pour chaque Id Prestation (colonne N) son Montant (KEUR) correspondant (colonne U) et pour ceux ou les montant sont différents remontent les dans les onglet PROD_Ab_BETA et BETA_Ab_PROD", Sub ComparerPrestations()
+Sub ComparerOngletsAvecAmeliorations()
 
-    Dim wsBeta As Worksheet, wsProd As Worksheet
-    Dim wsBetaAbProd As Worksheet, wsProdAbBeta As Worksheet
+    Dim wsBeta As Worksheet, wsProd As Worksheet, wsDiff As Worksheet
+    Dim dictBeta As Object, dictProd As Object
     Dim lastRowBeta As Long, lastRowProd As Long
-    Dim idBetaDict As Object, idProdDict As Object
-    Dim i As Long
-    id As Variant
-    Dim betaRow As Range, prodRow As Range
-    Dim outputRow As Long
-
-    Set wsBeta = ThisWorkbook.Sheets("Données_Beta")
-    Set wsProd = ThisWorkbook.Sheets("Données_Prod")
-
-    ' Créer les nouvelles feuilles (ou les réinitialiser si elles existent déjà)
-    On Error Resume Next
+    Dim i As Long, nextRow As Long
+    Dim key As Variant
+    Dim refBeta As Variant, montantBeta As Variant
+    Dim refProd As Variant, montantProd As Variant
+    
+    ' Initialisation des feuilles
+    Set wsBeta = ThisWorkbook.Sheets("donnees_BETA")
+    Set wsProd = ThisWorkbook.Sheets("donnees_PROD")
+    
+    ' Supprime l'onglet Différences s'il existe
     Application.DisplayAlerts = False
-    Worksheets("BETA_Ab_PROD").Delete
-    Worksheets("PROD_Ab_BETA").Delete
-    Application.DisplayAlerts = True
+    On Error Resume Next
+    ThisWorkbook.Sheets("Différences").Delete
     On Error GoTo 0
-
-    Set wsBetaAbProd = ThisWorkbook.Sheets.Add(After:=wsProd)
-    wsBetaAbProd.Name = "BETA_Ab_PROD"
-
-    Set wsProdAbBeta = ThisWorkbook.Sheets.Add(After:=wsBetaAbProd)
-    wsProdAbBeta.Name = "PROD_Ab_BETA"
-
-    ' Initialiser les dictionnaires
-    Set idBetaDict = CreateObject("Scripting.Dictionary")
-    Set idProdDict = CreateObject("Scripting.Dictionary")
-
-    ' Récupérer les IDs de Données_Beta
+    Application.DisplayAlerts = True
+    
+    ' Crée l'onglet Différences
+    Set wsDiff = ThisWorkbook.Sheets.Add
+    wsDiff.Name = "Différences"
+    
+    ' Copie les en-têtes et ajoute une colonne Explication
+    wsBeta.Range("A1:U1").Copy Destination:=wsDiff.Range("A1")
+    wsDiff.Range("V1").Value = "Explication"
+    nextRow = 2
+    
+    ' Initialisation des dictionnaires
+    Set dictBeta = CreateObject("Scripting.Dictionary")
+    Set dictProd = CreateObject("Scripting.Dictionary")
+    
     lastRowBeta = wsBeta.Cells(wsBeta.Rows.Count, "N").End(xlUp).Row
-    For i = 2 To lastRowBeta
-        id = Trim(wsBeta.Cells(i, "N").Value)
-        If Len(id) > 0 Then
-            If Not idBetaDict.exists(id) Then
-                idBetaDict.Add id, i
-            End If
-        End If
-    Next i
-
-    ' Récupérer les IDs de Données_Prod
     lastRowProd = wsProd.Cells(wsProd.Rows.Count, "N").End(xlUp).Row
-    For i = 2 To lastRowProd
-        id = Trim(wsProd.Cells(i, "N").Value)
-        If Len(id) > 0 Then
-            If Not idProdDict.exists(id) Then
-                idProdDict.Add id, i
-            End If
+    
+    ' Remplir le dictionnaire pour Beta
+    For i = 2 To lastRowBeta
+        If Not IsEmpty(wsBeta.Cells(i, "N").Value) Then
+            dictBeta(wsBeta.Cells(i, "N").Value) = wsBeta.Cells(i, "U").Value
         End If
     Next i
-
-    ' Copier l'en-tête
-    wsBeta.Rows(1).Copy Destination:=wsBetaAbProd.Rows(1)
-    wsProd.Rows(1).Copy Destination:=wsProdAbBeta.Rows(1)
-
-    ' Chercher les ID dans Beta mais pas dans Prod
-    outputRow = 2
-    For Each id In idBetaDict.Keys
-        If Not idProdDict.exists(id) Then
-            wsBeta.Rows(idBetaDict(id)).Copy Destination:=wsBetaAbProd.Rows(outputRow)
-            outputRow = outputRow + 1
+    
+    ' Remplir le dictionnaire pour Prod
+    For i = 2 To lastRowProd
+        If Not IsEmpty(wsProd.Cells(i, "N").Value) Then
+            dictProd(wsProd.Cells(i, "N").Value) = wsProd.Cells(i, "U").Value
         End If
-    Next id
-
-    ' Chercher les ID dans Prod mais pas dans Beta
-    outputRow = 2
-    For Each id In idProdDict.Keys
-        If Not idBetaDict.exists(id) Then
-            wsProd.Rows(idProdDict(id)).Copy Destination:=wsProdAbBeta.Rows(outputRow)
-            outputRow = outputRow + 1
+    Next i
+    
+    ' Comparaison Beta -> Prod
+    For i = 2 To lastRowBeta
+        refBeta = wsBeta.Cells(i, "N").Value
+        montantBeta = wsBeta.Cells(i, "U").Value
+        
+        If Not dictProd.exists(refBeta) Then
+            CopierLigne wsBeta, i, wsDiff, nextRow, "Manquant dans PROD", RGB(255, 165, 0) ' Orange
+            nextRow = nextRow + 1
+        ElseIf dictProd(refBeta) <> montantBeta Then
+            CopierLigne wsBeta, i, wsDiff, nextRow, "Montant différent dans PROD", RGB(255, 0, 0) ' Rouge
+            nextRow = nextRow + 1
         End If
-    Next id
+    Next i
+    
+    ' Comparaison Prod -> Beta
+    For i = 2 To lastRowProd
+        refProd = wsProd.Cells(i, "N").Value
+        montantProd = wsProd.Cells(i, "U").Value
+        
+        If Not dictBeta.exists(refProd) Then
+            CopierLigne wsProd, i, wsDiff, nextRow, "Manquant dans BETA", RGB(0, 176, 240) ' Bleu
+            nextRow = nextRow + 1
+        ElseIf dictBeta(refProd) <> montantProd Then
+            CopierLigne wsProd, i, wsDiff, nextRow, "Montant différent dans BETA", RGB(255, 0, 0) ' Rouge
+            nextRow = nextRow + 1
+        End If
+    Next i
+    
+    ' AutoFit des colonnes
+    wsDiff.Columns("A:V").AutoFit
+    
+    ' Sauvegarde automatique du fichier avec date et heure
+    Dim chemin As String
+    chemin = ThisWorkbook.Path & "\Comparaison_" & Format(Now, "yyyymmdd_HHMMSS") & ".xlsx"
+    ThisWorkbook.SaveCopyAs chemin
+    
+    MsgBox "Comparaison terminée ! Les différences sont dans l'onglet 'Différences'." & vbCrLf & _
+           "Le fichier a été sauvegardé sous : " & chemin, vbInformation
 
-    MsgBox "Comparaison terminée avec succès !", vbInformation
+End Sub
 
-End Sub" 
+Sub CopierLigne(wsSource As Worksheet, ligneSource As Long, wsDest As Worksheet, ligneDest As Long, explication As String, couleur As Long)
+    ' Copie la ligne et ajoute l'explication + couleur
+    wsSource.Range(wsSource.Cells(ligneSource, "A"), wsSource.Cells(ligneSource, "U")).Copy Destination:=wsDest.Cells(ligneDest, "A")
+    wsDest.Cells(ligneDest, "V").Value = explication
+    wsDest.Range(wsDest.Cells(ligneDest, "A"), wsDest.Cells(ligneDest, "V")).Interior.Color = couleur
+End Sub
