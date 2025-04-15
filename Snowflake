@@ -1,1 +1,7 @@
-=RECHERCHEV(N2;Données_PROD!$N$2:$N$55654;1;FAUX)
+Je viens d’achever les tests, et les résultats sont concluants.
+L’environnement Bêta contient davantage de prestations que la production.
+Les contrats en écart sont listés dans le fichier Excel joint, extrait de l’indicateur Crédit. Il s’agit exclusivement de crédits structurés.
+
+Vous trouverez également ci-dessous un exemple illustrant la différence entre Bêta et Production pour une même équipe sur l’indicateur Crédit. L’écart en montant provient de deux prestations supplémentaires en Bêta, issues des crédits structurés.
+
+Je vous laisse désormais la main pour poursuivre les tests.
