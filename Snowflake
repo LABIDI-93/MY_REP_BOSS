@@ -1,7 +1,160 @@
-Je viens d’achever les tests, et les résultats sont concluants.
-L’environnement Bêta contient davantage de prestations que la production.
-Les contrats en écart sont listés dans le fichier Excel joint, extrait de l’indicateur Crédit. Il s’agit exclusivement de crédits structurés.
+Déclenchement Phase de transition PVD :
 
-Vous trouverez également ci-dessous un exemple illustrant la différence entre Bêta et Production pour une même équipe sur l’indicateur Crédit. L’écart en montant provient de deux prestations supplémentaires en Bêta, issues des crédits structurés.
+----------------
 
-Je vous laisse désormais la main pour poursuivre les tests.
+nv lot 
+nouvelle tables
+PO : WJ ==> effectue précadrage : trouver le bon sourcing
+------------------------
+
+les travaux : débuté et finir cette année 
+
+tables des transfére des virement : reprise histo : fin avril : un pt que la réprise 
+
+ctrl-M qui vont bien
+
+Pol et WJ : fin avril et debut mai
+pas tres mur sur le sourcing 
+
+va falloir y aller 
+
+aborder la phase de transition 
+
+Alex peut étre avec nous 
+
+on va commencer avec Ibrahim : dispositif
+
+je suis neuf : faison la transition : 3 semaine mais vu que je suis a 50 %
+
+tt est fait reste la reporise d'histo
+ 
+control-M : ajustement a faire 
+
+YANN : fait ce qu'il faut s
+
+
+table des fait viremement : 
+
+plus long que prévu : début mai
+
+Stéphane : passaion donné des billes que je puisse lancer les reprise
+
+Franclin : BA : comprendre fonctionellement, le plan
+
+le Dev c'est reste avoir
+ 
+faut faire le run
+
+Yan : sors d'ici mi mai : plus de budget : il va mi-temps aprés bascule chez SANAA 
+
+apres Yann : le dev en charge plus une ressource a Bangalore 
+
+Mehdi a les infos des BA 
+
+il est basculé coté snowflake : Yann 
+
+des ressources sur le carreau : il y a un dev qui plus de budget et tout 
+
+une ressources datastage il nous faut ça 
+
+faut qu'on se renforce a mi avril mi mai.
+
+---------------------
+
+comment on organise 
+
+------------------------
+
+un créneau : d'une heure ou deux par jours 
+notez : les différents point et sujets 
+track record : sur les quelles je dois avancer
+
+------ 
+Stéphane : maitriser : ce que as été embarqué 
+------
+
+derniere partie n'est pas encore mise a jour 
+on a des shémas explicatif 
+
+-----------
+réunin : aucune réunion 
+----
+point de 30 min par 15aine de jrs : pour les sourcing et analyse des données
+va falloir y aller 
+transition 
+partie dev 
+----------------
+snowflake 
+----------------
+
+avoir les documentation or réunion des passaition 
+----------------
+
+PPS : récuperr un peut de budget 
+PIL INDUS : bcp de sujets : bcp de dev 
+pb 
+-------------------
+
+plusieurs lot 
+ou trouver les données sources : mission de l'ancien PO
+bcp de charge 
+requetage 3and mahdi
+
+PO WJ : profil data 
+
+complexité 2 : coté technqiue : de Lucid vers teradat : MKI : exsitante (taba3 alexandre)
+MVP : les tiers et les contrats : faut pas casser l'exsitant 
+le départ n"tait pas facile.
+
+partie en commun et chargemenr
+
+PO qui bosse actuellement
+
+Paul CHAURE : périm et Gétion ; exprime le besoin
+-------------------------
+virement quasi 
+MVP ; Tiers et et contrat : chargeement dns pp et PM
+
+Connexion : nombre de connexion avec plusieurs critére mis en prod 
+3eme lot / virmerenb
+
+commission sur les ctr : il y aura d'autres lots, doit étre refaite
+
+ajouter un membre : sur teams : dans l'équipe est il possible 
+
+
+
+
+2eme Lot : complexe : Cadrae
+------------------------------
+-----------------------------
+10.
+Pt Alexandre : 
+
+PILAT : tables DRP : coté 
+dans le contexte Snowflake 
+demande de valider : appli portés par DRP : 
+est-ce que les nom et prénoms des acteur
+  Amina Akrich : 
+
+
+-----
+Point Socle : Hybrid Data Lake (Lucid $ Azure) : secure by design : ? 
+
+02-2025
+---------------------
+Incrément virement : Anomalie : sur le chargement de la table de fait 
+	pv opération : un pt avec eux demain 
+au déla de mois de Mars on peut pas aller encore plus loin 
+	c'est pas trés claire comment il procéde 
+	terminer la reprise sur 2023 et le reste 2024
+
+pas d'opération tagé app_mobile 
+
+chercher une autre source : dans la BV opération c'est pas tt le tems alimenté 
+ce qui affichier c'est ce qui a dans la BV opéaraion ; donc pas d'autre information qui permet 
+
+
+
+
+
