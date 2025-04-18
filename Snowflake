@@ -1,11 +1,11 @@
-Bonjour,
+Le programme, dans sa conception actuelle, peut effectivement rapporter deux fois le même dépôt sur un même arrêté :
 
-Après analyse, l’écart constaté entre les données XXX de janvier et février est justifié.
+une première fois lorsqu’il provient du fichier DAA (y compris ceux avec le code source MALLAF),
 
-Le traitement intègre bien les fichiers des deux mois,dont le contenu est exceptionnellement identique.
-Il ajoute également, pour chaque mois, les dépôts arrivant à maturité sur la période d’arrêté correspondante. 
-Ainsi, des dépôts échus en janvier sont comparés à ceux arrivant à échéance en février, d’où l’écart observé.
+une seconde fois lorsqu’il est à la fois issu de DAA, que son code source est MALLAF ou MALLAFD, et que le dernier jour du mois de sa date de maturité correspond au dernier jour du mois de l’arrêté en cours.
 
-Tu trouveras en pièce jointe les éléments extraits qui confirment cette analyse. 
+C’est ce double comptage qui explique pourquoi, pour un même tiers et un même fichier, quatre dépôts apparaissent en février contre cinq en janvier.
 
-Cela me permet de conclure qu’il ne s’agit pas d’une erreur applicative.
+Comme convenu, cela constitue une anomalie fonctionnelle : en aucun cas l’application ne doit comptabiliser deux fois le même placement sur une même période.
+
+Nous allons donc engager une réflexion afin de mettre en place une solution pérenne, évitant la réapparition de ce cas de figure.
