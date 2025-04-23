@@ -1,78 +1,14 @@
-Sub ComparerPrestations()
 
-    Dim wsBeta As Worksheet, wsProd As Worksheet
-    Dim wsBetaAbProd As Worksheet, wsProdAbBeta As Worksheet
-    Dim lastRowBeta As Long, lastRowProd As Long
-    Dim idBetaDict As Object, idProdDict As Object
-    Dim i As Long
-    Dim id As Variant
-    Dim montantBeta As Double, montantProd As Double
-    Dim outputRowBeta As Long, outputRowProd As Long
+Suite à notre échange avec le PO    aujourd’hui, et afin de traiter les problématiques liées à l’indicateur TTTT – à savoir :
 
-    Set wsBeta = ThisWorkbook.Sheets("Données_Beta")
-    Set wsProd = ThisWorkbook.Sheets("Données_Prod")
+L’intégration en double de certains dépôts MAROOO,
 
-    ' Supprimer les feuilles si elles existent déjà
-    On Error Resume Next
-    Application.DisplayAlerts = False
-    Worksheets("BETA_Ab_PROD").Delete
-    Worksheets("PROD_Ab_BETA").Delete
-    Application.DisplayAlerts = True
-    On Error GoTo 0
+Le calcul du nombre de jours en prorata temporis, conformément à la règle validée par DFINANCEMENT (puisqu’il s’agit d’un existant) –
 
-    ' Créer les feuilles de sortie
-    Set wsBetaAbProd = ThisWorkbook.Sheets.Add(After:=wsProd)
-    wsBetaAbProd.Name = "BETA_Ab_PROD"
+nous souhaiterions qualifier ces éléments en change dans l’outil JIRA.
 
-    Set wsProdAbBeta = ThisWorkbook.Sheets.Add(After:=wsBetaAbProd)
-    wsProdAbBeta.Name = "PROD_Ab_BETA"
+Nous avons donc besoin de votre confirmation sur cette qualification afin que le PO puisse procéder à la création de la demande.
 
-    ' Initialiser les dictionnaires
-    Set idBetaDict = CreateObject("Scripting.Dictionary")
-    Set idProdDict = CreateObject("Scripting.Dictionary")
+Côté BA/DEV, j’ai d’ores et déjà commencé à travailler sur une solution, qui sera discutée au sein de BBBBS avant de vous être proposée.
 
-    ' Remplir dictionnaire depuis Données_Beta (clé = ID, valeur = ligne)
-    lastRowBeta = wsBeta.Cells(wsBeta.Rows.Count, "N").End(xlUp).Row
-    For i = 2 To lastRowBeta
-        id = Trim(wsBeta.Cells(i, "N").Value)
-        If Len(id) > 0 Then
-            idBetaDict(id) = i
-        End If
-    Next i
-
-    ' Remplir dictionnaire depuis Données_Prod (clé = ID, valeur = ligne)
-    lastRowProd = wsProd.Cells(wsProd.Rows.Count, "N").End(xlUp).Row
-    For i = 2 To lastRowProd
-        id = Trim(wsProd.Cells(i, "N").Value)
-        If Len(id) > 0 Then
-            idProdDict(id) = i
-        End If
-    Next i
-
-    ' Copier les en-têtes
-    wsBeta.Rows(1).Copy Destination:=wsBetaAbProd.Rows(1)
-    wsProd.Rows(1).Copy Destination:=wsProdAbBeta.Rows(1)
-
-    outputRowBeta = 2
-    outputRowProd = 2
-
-    ' Comparer les montants pour les ID communs
-    For Each id In idBetaDict.Keys
-        If idProdDict.exists(id) Then
-            montantBeta = wsBeta.Cells(idBetaDict(id), "U").Value
-            montantProd = wsProd.Cells(idProdDict(id), "U").Value
-            
-            If Round(montantBeta, 2) <> Round(montantProd, 2) Then
-                ' Différences de montant → copier dans les deux feuilles
-                wsBeta.Rows(idBetaDict(id)).Copy Destination:=wsBetaAbProd.Rows(outputRowBeta)
-                outputRowBeta = outputRowBeta + 1
-
-                wsProd.Rows(idProdDict(id)).Copy Destination:=wsProdAbBeta.Rows(outputRowProd)
-                outputRowProd = outputRowProd + 1
-            End If
-        End If
-    Next id
-
-    MsgBox "Comparaison des montants terminée avec succès !", vbInformation
-
-End Sub
+Je reste bien entendu disponible pour toute précision.
