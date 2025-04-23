@@ -1,11 +1,62 @@
-Le programme, dans sa conception actuelle, peut effectivement rapporter deux fois le même dépôt sur un même arrêté :
+Sub ComparerExtracts()
+    Dim ws As Worksheet
+    Dim wsResult As Worksheet
+    Dim lastRow As Long
+    Dim i As Long, j As Long
+    Dim arr1(), arr2()
+    Dim dict1 As Object, dict2 As Object
+    Dim key As String
+    Dim matchCount As Long
 
-une première fois lorsqu’il provient du fichier DAA (y compris ceux avec le code source MALLAF),
+    Set ws = ThisWorkbook.Sheets(1) ' Feuille contenant les données
+    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
 
-une seconde fois lorsqu’il est à la fois issu de DAA, que son code source est MALLAF ou MALLAFD, et que le dernier jour du mois de sa date de maturité correspond au dernier jour du mois de l’arrêté en cours.
+    ' Création dictionnaires pour stocker les lignes
+    Set dict1 = CreateObject("Scripting.Dictionary")
+    Set dict2 = CreateObject("Scripting.Dictionary")
 
-C’est ce double comptage qui explique pourquoi, pour un même tiers et un même fichier, quatre dépôts apparaissent en février contre cinq en janvier.
+    ' Parcours des lignes pour séparer les 2 groupes
+    For i = 2 To lastRow
+        If ws.Cells(i, 1).Value = "1er extract du fichier" Then
+            key = LigneSansColonneL(ws, i)
+            dict1(key) = i ' On enregistre la ligne
+        ElseIf ws.Cells(i, 1).Value = "2EME extract du fichier" Then
+            key = LigneSansColonneL(ws, i)
+            dict2(key) = i
+        End If
+    Next i
 
-Comme convenu, cela constitue une anomalie fonctionnelle : en aucun cas l’application ne doit comptabiliser deux fois le même placement sur une même période.
+    ' Création de la feuille résultat
+    On Error Resume Next
+    Application.DisplayAlerts = False
+    ThisWorkbook.Sheets("Lignes Identiques").Delete
+    Application.DisplayAlerts = True
+    On Error GoTo 0
 
-Nous allons donc engager une réflexion afin de mettre en place une solution pérenne, évitant la réapparition de ce cas de figure.
+    Set wsResult = ThisWorkbook.Sheets.Add
+    wsResult.Name = "Lignes Identiques"
+    ws.Rows(1).Copy Destination:=wsResult.Rows(1)
+    matchCount = 2
+
+    ' Comparaison : si une ligne du 1er extract est aussi dans le 2ème
+    For Each key In dict1.Keys
+        If dict2.exists(key) Then
+            ws.Rows(dict1(key)).Copy Destination:=wsResult.Rows(matchCount)
+            matchCount = matchCount + 1
+        End If
+    Next key
+
+    MsgBox matchCount - 2 & " lignes identiques trouvées (hors colonne L).", vbInformation
+End Sub
+
+Function LigneSansColonneL(ws As Worksheet, rowNum As Long) As String
+    Dim result As String
+    Dim col As Long
+    result = ""
+    For col = 2 To 19 ' Colonnes B (2) à S (19)
+        If col <> 12 Then ' Colonne L = 12
+            result = result & "|" & ws.Cells(rowNum, col).Text
+        End If
+    Next col
+    LigneSansColonneL = result
+End Function
