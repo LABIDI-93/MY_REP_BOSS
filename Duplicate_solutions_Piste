@@ -1,40 +1,81 @@
-Bonjour,
+ycle de vie d’un Product Owner
+Le cycle de vie d’un Product Owner est étroitement lié à celui du produit ou du projet agile sur lequel il travaille. On peut le découper en plusieurs grandes étapes :
 
-Merci pour ton temps et pour la présentation de l’EB.
+1. Découverte & Cadrage
+Comprendre les besoins business, les enjeux et les utilisateurs.
 
-Suite à cela, je t’envoie ce mail pour te partager ce que j’ai retenu.
-Peux-tu, s’il te plaît, me corriger ou compléter si j’ai oublié certains éléments ?
+Définir la vision produit avec les parties prenantes.
 
-Contexte :
+Rédiger une roadmap produit initiale.
 
-L’objectif de l’EB est d’automatiser l’alimentation des données pour les e e r a d , à partir des données disponibles dans lake.
+Identifier les premiers epics et features.
 
-Aujourd’hui, avant de devenir client, un prospect suit plusieurs étapes enregistrées dans le CRM Salesforce. 
-Certaines de ces données sont déjà intégrées dans le data lake, mais d'autres, pourtant essentielles pour les EERAD, ne le sont pas encore.
+2. Construction du Backlog
+Découpage en user stories.
 
-C’est pourquoi un script est actuellement lancé manuellement par le XXXX pour aller récupérer dans Salesforce les données manquantes, non présentes dans lakezhhzdz.
-Ces données sont ensuite croisées avec celles disponibles, nettoyées, les règles de gestion sont appliquées, et le tout permet de générer des lignes prêtes à être utilisées dans le rapport.
+Priorisation basée sur la valeur métier (souvent avec la méthode MoSCoW, WSJF, etc.).
 
-Solution proposée :
+Animation d’ateliers avec les utilisateurs, le métier et l’équipe technique.
 
-Stocker et tracer les étapes d’un prospect à distance dans l’entrepôt de données PVD, à travers deux tables :
+3. Phase de développement agile (Scrum, Kanban, etc.)
+Participer aux cérémonies agiles :
 
-Table Stock :
+Daily Scrum (optionnel mais utile)
 
-Elle représente une image à date d’un prospect dès sa première action en ligne.
-On y retrouve des informations figées (comme case$$$id$$$$c, identifiant unique du prospect), ainsi que des données susceptibles d’évoluer dans le temps (comme case$$last$$modify$$date$$c, date de dernière modification du statut).
+Sprint Planning : expliquer et prioriser les user stories
 
-Pour ce type de données, seule la dernière valeur non vide ou non erronée est conservée.
-Résultat : une ligne par prospect, avec case$$id$$c comme clé primaire.
+Sprint Review : démonstration du produit fini et récupération du feedback
 
-Table Flux :
+Sprint Retrospective (plus pour l'équipe mais utile pour s’aligner)
 
-Elle enregistre chaque étape du parcours du prospect, depuis sa première action jusqu’à la conclusion (devenir client, abandon, etc.).
+Gérer et affiner le backlog continuellement (Backlog Grooming).
 
-Chaque changement de statut/sous-statut est inscrit dans cette table.
-Un prospect peut donc avoir plusieurs lignes dans cette table, selon le nombre d’étapes franchies.
-La clé primaire est composée des champs : case$$id$$c, status, sub$$status, (à compléter selon les noms exacts).
+Arbitrer les choix fonctionnels au quotidien.
 
-Données sources :
+Tester les livrables avec les utilisateurs si nécessaire (recette fonctionnelle).
 
-Les données concernées sont actuellement disponibles dans la table RC_2023 de lake**.
+4. Lancement produit / mise en production
+Valider que les fonctionnalités prioritaires sont prêtes.
+
+Accompagner la stratégie de go-to-market ou de mise en ligne.
+
+Collecter les retours utilisateurs et ajuster le backlog si besoin.
+
+5. Amélioration continue
+Suivre les KPIs produit.
+
+Recueillir des feedbacks (via analytics, support, utilisateurs).
+
+Ajuster les priorités et continuer les itérations.
+
+🧠 Comment fonctionne un Product Owner ?
+Le Product Owner agit comme interface entre le métier et la tech, et fonctionne selon ces principes :
+
+Vision claire du produit et des utilisateurs.
+
+Gestion de la valeur : il s’assure que ce qui est développé apporte un maximum de valeur.
+
+Décision rapide : il tranche sur les arbitrages fonctionnels.
+
+Communication constante avec les stakeholders (métier, utilisateurs, sponsors) et l’équipe de développement.
+
+✅ Quand dit-on que sa mission est terminée ?
+On peut considérer que la mission d’un PO est terminée dans plusieurs cas :
+
+1. Fin de vie du produit ou du projet
+Le produit n’a plus d’évolutions prévues (maintenance minimale ou arrêt).
+
+Le projet est livré et n’a pas vocation à être maintenu.
+
+2. Changement d’organisation ou de contexte
+La responsabilité du produit est transférée à un autre PO ou à une autre équipe (ex : passage en run, changement de portefeuille).
+
+3. Objectifs atteints
+Les objectifs définis dans le cadre de la mission (ex : MVP livré, version 1 en production, gains métiers réalisés) sont atteints.
+
+💡 Exemple concret :
+Un PO est missionné pour développer une application de gestion des congés :
+
+Il travaille pendant 6 mois à construire le backlog, suivre les développements, livrer le MVP.
+
+Une fois la version en production, qu’elle est stable, utilisée, et que le client est autonome, sa mission peut se terminer.
