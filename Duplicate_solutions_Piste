@@ -1,81 +1,26 @@
-ycle de vie d’un Product Owner
-Le cycle de vie d’un Product Owner est étroitement lié à celui du produit ou du projet agile sur lequel il travaille. On peut le découper en plusieurs grandes étapes :
+ 5. Industrialiser l’alimentation et la documentation
+Crée un traitement modulaire et réutilisable depuis le Data Lake
 
-1. Découverte & Cadrage
-Comprendre les besoins business, les enjeux et les utilisateurs.
+Documente dans un catalogue de données :
 
-Définir la vision produit avec les parties prenantes.
+Le nom des colonnes
 
-Rédiger une roadmap produit initiale.
+Leur signification métier
 
-Identifier les premiers epics et features.
+Les liens avec les autres tables
 
-2. Construction du Backlog
-Découpage en user stories.
+Étiquette bien les colonnes techniques (timestamps, sources, statuts, etc.)
 
-Priorisation basée sur la valeur métier (souvent avec la méthode MoSCoW, WSJF, etc.).
+🧩 6. Nommer et structurer de manière cohérente
+Utilise une nomenclature uniforme : noms de colonnes, de tables, types de données
 
-Animation d’ateliers avec les utilisateurs, le métier et l’équipe technique.
+Classe les tables dans les bons schémas (par domaine métier, par typologie : staging, raw, datamart…)
 
-3. Phase de développement agile (Scrum, Kanban, etc.)
-Participer aux cérémonies agiles :
-
-Daily Scrum (optionnel mais utile)
-
-Sprint Planning : expliquer et prioriser les user stories
-
-Sprint Review : démonstration du produit fini et récupération du feedback
-
-Sprint Retrospective (plus pour l'équipe mais utile pour s’aligner)
-
-Gérer et affiner le backlog continuellement (Backlog Grooming).
-
-Arbitrer les choix fonctionnels au quotidien.
-
-Tester les livrables avec les utilisateurs si nécessaire (recette fonctionnelle).
-
-4. Lancement produit / mise en production
-Valider que les fonctionnalités prioritaires sont prêtes.
-
-Accompagner la stratégie de go-to-market ou de mise en ligne.
-
-Collecter les retours utilisateurs et ajuster le backlog si besoin.
-
-5. Amélioration continue
-Suivre les KPIs produit.
-
-Recueillir des feedbacks (via analytics, support, utilisateurs).
-
-Ajuster les priorités et continuer les itérations.
-
-🧠 Comment fonctionne un Product Owner ?
-Le Product Owner agit comme interface entre le métier et la tech, et fonctionne selon ces principes :
-
-Vision claire du produit et des utilisateurs.
-
-Gestion de la valeur : il s’assure que ce qui est développé apporte un maximum de valeur.
-
-Décision rapide : il tranche sur les arbitrages fonctionnels.
-
-Communication constante avec les stakeholders (métier, utilisateurs, sponsors) et l’équipe de développement.
-
-✅ Quand dit-on que sa mission est terminée ?
-On peut considérer que la mission d’un PO est terminée dans plusieurs cas :
-
-1. Fin de vie du produit ou du projet
-Le produit n’a plus d’évolutions prévues (maintenance minimale ou arrêt).
-
-Le projet est livré et n’a pas vocation à être maintenu.
-
-2. Changement d’organisation ou de contexte
-La responsabilité du produit est transférée à un autre PO ou à une autre équipe (ex : passage en run, changement de portefeuille).
-
-3. Objectifs atteints
-Les objectifs définis dans le cadre de la mission (ex : MVP livré, version 1 en production, gains métiers réalisés) sont atteints.
-
-💡 Exemple concret :
-Un PO est missionné pour développer une application de gestion des congés :
-
-Il travaille pendant 6 mois à construire le backlog, suivre les développements, livrer le MVP.
-
-Une fois la version en production, qu’elle est stable, utilisée, et que le client est autonome, sa mission peut se terminer.
+💡 En résumé :
+Étape	Action clé
+Analyse	Comprendre la nature et la finalité des tables
+Modélisation	Intégration logique dans le modèle DWH (fact/dim)
+Normalisation	Identifier les clés partagées, harmoniser les formats
+Test	Vérifier les jointures et les relations
+Industrialisation	Alimenter proprement et documenter
+Cohérence	Suivre une logique de nommage et d'organisation claire
