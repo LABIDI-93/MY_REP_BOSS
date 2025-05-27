@@ -1,3 +1,27 @@
-Nom du champ	Table	Définition métier	Type	Format	Contrainte	Valeurs possibles	Commentaire,,,,,
-| Tables source | Champs source | Table cible | Champ cible | RG | Format cible | Contrainte | Commentaire |
-| ------------- | ------------- | ----------- | ----------- | -- | ------------ | ---------- | ----------- |
+Description :
+Cette donnée représente la clé primaire de la table. Elle est donc unique et identifie chaque ligne comme une entrée correspondant à une relation à distance.
+
+Mise à jour :
+La mise à jour de cette donnée est quotidienne, uniquement si les conditions suivantes sont remplies pour chaque ligne :
+
+Les champs ss8C et sous_ss88c ne doivent pas être :
+
+vides ('')
+
+NULL
+
+égaux à 0
+
+égaux à #N/A
+
+Si les conditions ci-dessus sont remplies, alors :
+
+Prendre la valeur maximale de la colonne case_last_modify_date__c pour cette entrée.
+
+Mettre à jour la ligne avec cette valeur.
+
+Si les conditions ne sont pas remplies :
+
+Annuler l’actualisation.
+
+Conserver la dernière valeur connue.
