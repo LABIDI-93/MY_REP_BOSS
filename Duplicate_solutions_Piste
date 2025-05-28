@@ -1,27 +1,67 @@
-Description :
-Cette donnée représente la clé primaire de la table. Elle est donc unique et identifie chaque ligne comme une entrée correspondant à une relation à distance.
+Slide 1 – Contexte & Besoin
+Titre : Automatisation de l’intégration des fichiers dans l’application PXXXT
 
-Mise à jour :
-La mise à jour de cette donnée est quotidienne, uniquement si les conditions suivantes sont remplies pour chaque ligne :
+Contexte :
 
-Les champs ss8C et sous_ss88c ne doivent pas être :
+PXXXT est une application de pilotage des activités transverses du réseau SGRF : Crédit, Entrée en Relation, Ayvens (leasing).
 
-vides ('')
+Des fichiers manuels doivent être intégrés chaque mois.
 
-NULL
+Processus actuel (manuel) :
 
-égaux à 0
+Création de 2 tickets Unity par fichier :
 
-égaux à #N/A
+Pour dépôt dans un répertoire Unix
 
-Si les conditions ci-dessus sont remplies, alors :
+Pour lancer un script d'intégration
 
-Prendre la valeur maximale de la colonne case_last_modify_date__c pour cette entrée.
+Objectif :
 
-Mettre à jour la ligne avec cette valeur.
+Automatiser l’intégration des fichiers dans la chaîne quotidienne pour réduire les délais et alléger la charge opérationnelle.
 
-Si les conditions ne sont pas remplies :
+🔹 Slide 2 – Problématique & Proposition
+Problèmes identifiés :
 
-Annuler l’actualisation.
+Charge de travail importante : plusieurs tickets par mois
 
-Conserver la dernière valeur connue.
+Délais longs, dépendance forte aux gestionnaires
+
+En cas d'erreur : nécessité de recréer des tickets → perte de temps
+
+Scénario proposé :
+
+Déposer les fichiers via un service existant (FTaaS, SET, EF...)
+
+Intégration dans la chaîne quotidienne Ctrl-M :
+
+Le traitement détecte automatiquement la présence du fichier
+
+L’application est alimentée de manière automatique et relançable
+
+Bénéfices :
+
+Industrialisation de la chaîne
+
+Réduction de la dépendance aux équipes Unity
+
+Autonomie & gain de temps
+
+🔹 Slide 3 – Points de blocage & Appel à contribution
+Points de blocage rencontrés :
+
+FTaaS refusé : use case non conforme
+
+Proposition d’utiliser MicroStrategy (outil de restitution) → non compatible techniquement
+
+Besoin d'orientation sur :
+
+Meilleure solution technique à adopter pour le dépôt sécurisé & exploitable automatiquement
+
+Validation de la faisabilité dans l’écosystème shhhhf
+
+Alternative possible à FTaaS avec intégration dans Ctrl-M
+
+Ouverture à d'autres solutions :
+
+Inspiré d'autres projets internes, mais nous sommes ouverts à toute proposition technique conforme à notre environnement.
+
