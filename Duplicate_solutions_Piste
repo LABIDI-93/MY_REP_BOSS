@@ -1,67 +1,20 @@
-Slide 1 – Contexte & Besoin
-Titre : Automatisation de l’intégration des fichiers dans l’application PXXXT
+En attendant le point avec l'architecte de l'intégration SI lundi prochain, voici les principaux éléments issus de ma discussion avec ST cet après-midi :
 
-Contexte :
+Toutes les offres basées sur un mode user-to-app ont généré de multiples usages spécifiques, ce qui a conduit à leur décommissionnement ou à leur mise en extinction (ex. : SET, MyFileGetWay, etc.).
+Par conséquent, nous ne pouvons pas recourir à ces solutions.
 
-PXXXT est une application de pilotage des activités transverses du réseau SGRF : Crédit, Entrée en Relation, Ayvens (leasing).
+Des alternatives existent, mais elles doivent impérativement être mises en œuvre par une application identifiée par un trigramme.
+Par exemple, une application source générant un fichier (ficsource) devra le déposer via FTaaS, sur un bucket S3, un SFTP ou un partage Windows (hub de transfert).
+Dans tous les cas, l’échange doit se faire d’application à application.
 
-Des fichiers manuels doivent être intégrés chaque mois.
+Autre possibilité : identifier une solution technique alternative, telle qu’un portail web ou une intégration directe dans MicroStrategy,
+pour permettre l'import du fichier.
 
-Processus actuel (manuel) :
+TECHL, j’aimerais également te poser deux questions dans le cadre de Snowflake :
 
-Création de 2 tickets Unity par fichier :
+Serait-il envisageable d’intégrer directement des fichiers CSV via un stage dans une table PIXX, sans passer par un serveur applicatif (Unix, Linux, etc.) ?
+L’idée serait que le stage soit hébergé dans l’espace SGCP de PIXX et que nous l'implémontons avec des CSV.
+Si c’est faisable, cela simplifierait grandement le processus en nous affranchissant des dépendances techniques.
 
-Pour dépôt dans un répertoire Unix
-
-Pour lancer un script d'intégration
-
-Objectif :
-
-Automatiser l’intégration des fichiers dans la chaîne quotidienne pour réduire les délais et alléger la charge opérationnelle.
-
-🔹 Slide 2 – Problématique & Proposition
-Problèmes identifiés :
-
-Charge de travail importante : plusieurs tickets par mois
-
-Délais longs, dépendance forte aux gestionnaires
-
-En cas d'erreur : nécessité de recréer des tickets → perte de temps
-
-Scénario proposé :
-
-Déposer les fichiers via un service existant (FTaaS, SET, EF...)
-
-Intégration dans la chaîne quotidienne Ctrl-M :
-
-Le traitement détecte automatiquement la présence du fichier
-
-L’application est alimentée de manière automatique et relançable
-
-Bénéfices :
-
-Industrialisation de la chaîne
-
-Réduction de la dépendance aux équipes Unity
-
-Autonomie & gain de temps
-
-🔹 Slide 3 – Points de blocage & Appel à contribution
-Points de blocage rencontrés :
-
-FTaaS refusé : use case non conforme
-
-Proposition d’utiliser MicroStrategy (outil de restitution) → non compatible techniquement
-
-Besoin d'orientation sur :
-
-Meilleure solution technique à adopter pour le dépôt sécurisé & exploitable automatiquement
-
-Validation de la faisabilité dans l’écosystème shhhhf
-
-Alternative possible à FTaaS avec intégration dans Ctrl-M
-
-Ouverture à d'autres solutions :
-
-Inspiré d'autres projets internes, mais nous sommes ouverts à toute proposition technique conforme à notre environnement.
-
+Avons-nous la possibilité, aujourd’hui, de charger ces CSV dans un datalab hébergé sur le serveur de production Teradata ?
+Cela nous permettrait d’importer les fichiers dans le datalab, puis d’ajouter un job dans notre chaîne pour transférer les données vers le schéma STG.
