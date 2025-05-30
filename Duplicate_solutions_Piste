@@ -1,20 +1,7 @@
-En attendant le point avec l'architecte de l'intégration SI lundi prochain, voici les principaux éléments issus de ma discussion avec ST cet après-midi :
 
-Toutes les offres basées sur un mode user-to-app ont généré de multiples usages spécifiques, ce qui a conduit à leur décommissionnement ou à leur mise en extinction (ex. : SET, MyFileGetWay, etc.).
-Par conséquent, nous ne pouvons pas recourir à ces solutions.
-
-Des alternatives existent, mais elles doivent impérativement être mises en œuvre par une application identifiée par un trigramme.
-Par exemple, une application source générant un fichier (ficsource) devra le déposer via FTaaS, sur un bucket S3, un SFTP ou un partage Windows (hub de transfert).
-Dans tous les cas, l’échange doit se faire d’application à application.
-
-Autre possibilité : identifier une solution technique alternative, telle qu’un portail web ou une intégration directe dans MicroStrategy,
-pour permettre l'import du fichier.
-
-TECHL, j’aimerais également te poser deux questions dans le cadre de Snowflake :
-
-Serait-il envisageable d’intégrer directement des fichiers CSV via un stage dans une table PIXX, sans passer par un serveur applicatif (Unix, Linux, etc.) ?
-L’idée serait que le stage soit hébergé dans l’espace SGCP de PIXX et que nous l'implémontons avec des CSV.
-Si c’est faisable, cela simplifierait grandement le processus en nous affranchissant des dépendances techniques.
-
-Avons-nous la possibilité, aujourd’hui, de charger ces CSV dans un datalab hébergé sur le serveur de production Teradata ?
-Cela nous permettrait d’importer les fichiers dans le datalab, puis d’ajouter un job dans notre chaîne pour transférer les données vers le schéma STG.
+Je souhaiterais vous solliciter pour la création (ou, si elle existe déjà, la récupération) d’un schéma data_lab en environnement de production.
+L’objectif est d’y intégrer temporairement les fichiers CSV actuellement utilisés par les équipes métiers, notamment pour le suivi d’indicateurs tels que le dépôt à terme ou le marché financier.
+Cela nous permettrait d’effectuer directement depuis le datalab des tests de qualité sur ces données.
+Par la suite, les données validées seront transférées vers le staging, puis intégrées au DWH de l’application PPIII.
+Cette démarche est envisagée comme une solution provisoire, en attendant la mise en place d’alternatives plus pérennes dans le cadre de la migration vers Snowflake.
+Je reste à disposition pour toute précision ou échange complémentaire.
