@@ -1,7 +1,6 @@
 
-Je souhaiterais vous solliciter pour la création (ou, si elle existe déjà, la récupération) d’un schéma data_lab en environnement de production.
-L’objectif est d’y intégrer temporairement les fichiers CSV actuellement utilisés par les équipes métiers, notamment pour le suivi d’indicateurs tels que le dépôt à terme ou le marché financier.
-Cela nous permettrait d’effectuer directement depuis le datalab des tests de qualité sur ces données.
-Par la suite, les données validées seront transférées vers le staging, puis intégrées au DWH de l’application PPIII.
-Cette démarche est envisagée comme une solution provisoire, en attendant la mise en place d’alternatives plus pérennes dans le cadre de la migration vers Snowflake.
-Je reste à disposition pour toute précision ou échange complémentaire.
+SELECT
+  COUNT(CASE WHEN champ1 IS NULL THEN 1 END) AS champ1_nulls,
+  COUNT(CASE WHEN champ2 IS NULL THEN 1 END) AS champ2_nulls,
+  COUNT(CASE WHEN champ3 IS NULL THEN 1 END) AS champ3_nulls
+FROM nom_de_ta_table;
