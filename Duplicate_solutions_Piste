@@ -1,6 +1,24 @@
+Compte rendu – Montée en compétence de XXXXX (Semaine 1)
 
-SELECT
-  COUNT(CASE WHEN champ1 IS NULL THEN 1 END) AS champ1_nulls,
-  COUNT(CASE WHEN champ2 IS NULL THEN 1 END) AS champ2_nulls,
-  COUNT(CASE WHEN champ3 IS NULL THEN 1 END) AS champ3_nulls
-FROM nom_de_ta_table;
+Au cours de cette première semaine d’intégration de François dans l’équipe, plusieurs actions ont été menées afin de favoriser sa montée en compétence sur le périmètre Pilotage des XXX XXXX (XXX) :
+
+Présentation du périmètre PVD : explication du cycle de vie des prospects et des étapes menant à la création d’un compte en ligne.
+
+Architecture de la chaîne PVD : de la collecte des données depuis la data lake XXXX ou la base XX, au passage par la zone de staging, jusqu’à l’alimentation du DWH PVD.
+
+Normes de développement : règles de nommage des tables et champs cibles, ainsi que les standards de formatage des données.
+
+Collecte des données LUCID : fonctionnement du job Datastage générique et démonstration du paramétrage pour la collecte vers le staging PVD (et plus largement MKI).
+
+Navigation dans le dépôt Git : présentation de l’organisation du répertoire projet.
+
+Optimisation des calculs : revue des scripts de calcul des statistiques dans Teradata pour réduction des temps de traitement.
+
+Création de tables staging : structuration pour accueillir les données en provenance de LUCID.
+
+Analyse fonctionnelle : lecture des spécifications et premières observations de François.
+
+Qualité des données : identification par François de champs en doublon issus de sources différentes.
+
+Accès aux environnements : demandes d’habilitations initiées (XXXX, Datastage, Teradata, Hive/HUE), en cours de traitement – certains blocages subsistent côté Teradata et CyberArk.
+
