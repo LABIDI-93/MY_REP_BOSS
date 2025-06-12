@@ -1,25 +1,170 @@
-Compte rendu – Montée en compétence de XXXXX (Semaine 1)
+Donner au développeur une vision claire et complète de la chaîne décisionnelle, du point de collecte des données jusqu’à leur exploitation via un entrepôt de données (Data Warehouse) et les outils de BI.
 
-Au cours de cette première semaine d’intégration de François dans l’équipe, plusieurs actions ont été menées afin de favoriser sa montée en compétence sur le périmètre Pilotage des XXX XXXX (XXX) :
+🗂️ Plan de Formation : Chaîne Décisionnelle
+🧩 1. Introduction à la chaîne décisionnelle
+Durée : 15 min
 
-Présentation du périmètre PVD : explication du cycle de vie des prospects et des étapes menant à la création d’un compte en ligne.
+✅ Contenu :
+Qu’est-ce qu’un système décisionnel ?
 
-Architecture de la chaîne PVD : de la collecte des données depuis la data lake XXXX ou la base XX, au passage par la zone de staging, jusqu’à l’alimentation du DWH PVD.
+Finalité : aider à la prise de décision par l’analyse de données consolidées, fiables et historisées
 
-Normes de développement : règles de nommage des tables et champs cibles, ainsi que les standards de formatage des données.
+Acteurs concernés : métiers, IT, analystes, DSI...
 
-Collecte des données LUCID : fonctionnement du job Datastage générique et démonstration du paramétrage pour la collecte vers le staging PVD (et plus largement MKI).
+🧷 Ressources :
+Qu'est-ce qu'un système décisionnel ? (Decideo)
 
-Navigation dans le dépôt Git : présentation de l’organisation du répertoire projet.
+Exemple métier : analyser les ventes mensuelles dans le retail
 
-Optimisation des calculs : revue des scripts de calcul des statistiques dans Teradata pour réduction des temps de traitement.
+📥 2. Sources de données hétérogènes
+Durée : 20 min
 
-Création de tables staging : structuration pour accueillir les données en provenance de LUCID.
+✅ Contenu :
+Types de sources :
 
-Analyse fonctionnelle : lecture des spécifications et premières observations de François.
+Bases relationnelles (Oracle, SQL Server, PostgreSQL…)
 
-Qualité des données : identification par François de champs en doublon issus de sources différentes.
+Fichiers plats (CSV, Excel)
 
-Accès aux environnements : demandes d’habilitations initiées (XXXX, Datastage, Teradata, Hive/HUE), en cours de traitement – certains blocages subsistent côté Teradata et CyberArk.
+Web Services / APIs (REST/JSON, XML)
 
-Présentation fonctionnelle par le Scrum Master : introduction à PLXXX, MKXXX et aux différentes applications associées, ainsi qu’à leur articulation au sein de l’écosystème.
+Données semi-structurées (JSON, XML)
+
+Données massives (Data Lake – fichiers Parquet, Avro, ORC)
+
+💡 Points à évoquer :
+Importance de la variété et de la volumétrie
+
+Qualité, fraîcheur, fréquence d’actualisation
+
+🧷 Ressources :
+Introduction aux types de sources de données (Talend)
+
+Cas d’usage : fichier Excel contenant les budgets annuels VS base Oracle des commandes
+
+🔄 3. Zone de staging (ou zone d'atterrissage)
+Durée : 20 min
+
+✅ Contenu :
+Rôle du staging : stocker les données brutes sans transformation
+
+Avantage : rejouabilité, auditabilité
+
+Souvent partitionné par date de chargement
+
+Peut se faire dans un SGBD ou dans un data lake
+
+💡 Points à évoquer :
+Format des données conservé (brut)
+
+Importance des métadonnées (source, date de chargement, etc.)
+
+🧷 Ressources :
+Zone de staging sur Datawarehouse4u
+
+🗃️ 4. Data Warehouse (Entrepôt de données)
+Durée : 25 min
+
+✅ Contenu :
+Objectif : consolider les données, historiser, centraliser
+
+Données nettoyées, enrichies et historisées
+
+Modèle en étoile (star schema) ou flocon (snowflake)
+
+Stockage sur Snowflake, Teradata, BigQuery, Redshift, etc.
+
+💡 Concepts à expliquer :
+Historisation (SCD1, SCD2)
+
+Séparation des couches : RAW, CLEANSING, CORE, DATAMART
+
+Notion de DataMart métier
+
+🧷 Ressources :
+Star vs Snowflake Schema - Visual Guide (Vertabelo)
+
+SCD Types explained simply
+
+📐 5. Modélisation décisionnelle
+Durée : 30 min
+
+✅ Contenu :
+Tables de faits : mesures quantitatives (ventes, revenus…)
+
+Tables de dimensions : contexte d’analyse (client, temps, produit…)
+
+Faits granulaire : par jour, par produit, par magasin…
+
+Modèles classiques : en étoile, en flocon
+
+💡 Points à illustrer :
+Exemple d’un fait de commande et ses dimensions : client, produit, date, magasin
+
+Schéma à dessiner en live
+
+🧷 Ressources :
+Modélisation dimensionnelle – Le Blog de Vincent Rainardi
+
+Kimball’s Dimensional Modeling Techniques (PDF officiel)
+
+🔄 6. ETL / ELT : le cœur du pipeline
+Durée : 20 min
+
+✅ Contenu :
+ETL = Extract – Transform – Load
+
+ELT = Extract – Load – Transform (modern warehouses like Snowflake)
+
+Outils : Talend, Informatica, dbt, DataStage, SQL scripts, Airflow
+
+Fréquences de chargement : batch (quotidien), temps réel
+
+🧷 Ressources :
+ETL vs ELT expliqué simplement (Fivetran)
+
+📊 7. Couches de restitution / BI
+Durée : 15 min
+
+✅ Contenu :
+Tableaux de bord, KPIs, reporting
+
+Outils : Power BI, Tableau, Qlik, Looker
+
+Importance de la qualité des données en amont
+
+📦 8. Cas concret de bout en bout
+Durée : 30 min
+
+✅ Contenu :
+Étude de cas simplifiée :
+
+Source = fichier CSV des ventes
+
+Staging = table brute
+
+Transformation = enrichissement + agrégation
+
+Modélisation = fait de ventes + dimension produit et date
+
+Visualisation = total des ventes par produit et par mois
+
+➕ Bonus :
+Option : proposer un exercice d’analyse de cas (sur Excel ou SQL)
+
+🎓 9. Conclusion et questions
+Durée : 10–15 min
+
+Résumé des étapes de la chaîne décisionnelle
+
+Questions/réponses
+
+Partage de documentation (schéma global, supports PDF)
+
+📁 Supports à prévoir
+Un schéma visuel de la chaîne décisionnelle (je peux t’en générer un si tu veux)
+
+Un jeu de données simplifié (CSV ventes)
+
+Un outil de dessin/tableau blanc pour illustrer les relations entre tables
+
