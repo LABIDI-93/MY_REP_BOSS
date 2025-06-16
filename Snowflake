@@ -1,62 +1,32 @@
-Sub ComparerExtracts()
-    Dim ws As Worksheet
-    Dim wsResult As Worksheet
-    Dim lastRow As Long
-    Dim i As Long, j As Long
-    Dim arr1(), arr2()
-    Dim dict1 As Object, dict2 As Object
-    Dim key As String
-    Dim matchCount As Long
+Bonjour,
 
-    Set ws = ThisWorkbook.Sheets(1) ' Feuille contenant les données
-    lastRow = ws.Cells(ws.Rows.Count, "A").End(xlUp).Row
+Voici le bilan des actions menées dans le cadre de la montée en compétence de François durant la semaine du 9 au 13 juin 2025 :
 
-    ' Création dictionnaires pour stocker les lignes
-    Set dict1 = CreateObject("Scripting.Dictionary")
-    Set dict2 = CreateObject("Scripting.Dictionary")
+Création d’objets dans le SGBD Teradata
 
-    ' Parcours des lignes pour séparer les 2 groupes
-    For i = 2 To lastRow
-        If ws.Cells(i, 1).Value = "1er extract du fichier" Then
-            key = LigneSansColonneL(ws, i)
-            dict1(key) = i ' On enregistre la ligne
-        ElseIf ws.Cells(i, 1).Value = "2EME extract du fichier" Then
-            key = LigneSansColonneL(ws, i)
-            dict2(key) = i
-        End If
-    Next i
+Mise en place de la structure de création des tables dans le DWH MKI, en conformité avec les règles de modélisation : définition des indexes, des clés primaires et du primary index unique. Deux données clés sont systématiquement intégrées depuis LUCID :
 
-    ' Création de la feuille résultat
-    On Error Resume Next
-    Application.DisplayAlerts = False
-    ThisWorkbook.Sheets("Lignes Identiques").Delete
-    Application.DisplayAlerts = True
-    On Error GoTo 0
+	l’ID technique provenant de la source de collecte
 
-    Set wsResult = ThisWorkbook.Sheets.Add
-    wsResult.Name = "Lignes Identiques"
-    ws.Rows(1).Copy Destination:=wsResult.Rows(1)
-    matchCount = 2
+	la dt_tech_sysdate, correspondant à la date d’insertion du traitement.
 
-    ' Comparaison : si une ligne du 1er extract est aussi dans le 2ème
-    For Each key In dict1.Keys
-        If dict2.exists(key) Then
-            ws.Rows(dict1(key)).Copy Destination:=wsResult.Rows(matchCount)
-            matchCount = matchCount + 1
-        End If
-    Next key
+Paramétrage des scripts de création d’objets Teradata
 
-    MsgBox matchCount - 2 & " lignes identiques trouvées (hors colonne L).", vbInformation
-End Sub
+Gestion des droits Unix
+Apprentissage du fonctionnement des droits d'accès (lecture, écriture, exécution).
 
-Function LigneSansColonneL(ws As Worksheet, rowNum As Long) As String
-    Dim result As String
-    Dim col As Long
-    result = ""
-    For col = 2 To 19 ' Colonnes B (2) à S (19)
-        If col <> 12 Then ' Colonne L = 12
-            result = result & "|" & ws.Cells(rowNum, col).Text
-        End If
-    Next col
-    LigneSansColonneL = result
-End Function
+Utilisation des serveurs FTP
+Prise en main des outils WinSCP et FileZilla pour les dépôts sur les serveurs d’homologation, et usage de PuTTY pour les commandes en ligne.
+
+Processus de création des tickets Unity
+
+Approche théorique de la chaîne décisionnelle
+
+	Revue complète de l’architecture BI : des sources hétérogènes aux données brutes dans les zones de staging, en passant par les transformations, le stockage dans le DWH (entrepôt de 	données), la constitution des datamarts et l’exploitation via des outils de reporting comme MicroStrategy.
+	Un focus particulier a été fait sur la modélisation en étoile, avec un exemple concret basé sur le DWH MKI (tables de faits et dimensions).
+
+Point important :
+
+	En fin de semaine, nous avons été informés d’une coupe budgétaire imposant l’arrêt immédiat des travaux liés au projet de pilotage des ventes digitales. Par conséquent, François, 	Alexandre Haguet et moi-même cessons toute action sur ce périmètre.
+	Nous poursuivons néanmoins nos travaux sur le domaine MKI, et réorientons nos efforts vers d'autres projets tels que la satisfaction client.
+
