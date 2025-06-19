@@ -1,8 +1,6 @@
-Current Process Description
-The current data integration process for handling CSV files received by email from the business involves two separate Unity tickets:
+Proposed Solution
+The proposed solution is to allow business teams to place CSV files directly into the Datalab environment, named (...). We already have the necessary permissions with the appropriate user to write files to this location.
 
-The first ticket is used to request the placement of the file in the appropriate UNIX directory.
+From there, using the admin user of the PILAT application, we would access the files in the Datalab and insert the data into the target tables located in another schema (PILAT).
 
-The second ticket is used to request the execution of the shell script, with the necessary parameters, which will then load the data into the appropriate table.
-
-This process is time-consuming and inefficient due to its dependency on the gestionnaire, who must manually handle each Unity ticket. For this reason, we are currently working on an improved solution, as described in the comment above.
+However, since we do not currently have the required access rights to perform this operation, we are submitting this request to obtain the necessary permissions.
