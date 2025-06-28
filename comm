@@ -1,14 +1,14 @@
-
-Suite à notre échange avec le PO    aujourd’hui, et afin de traiter les problématiques liées à l’indicateur TTTT – à savoir :
-
-L’intégration en double de certains dépôts MAROOO,
-
-Le calcul du nombre de jours en prorata temporis, conformément à la règle validée par DFINANCEMENT (puisqu’il s’agit d’un existant) –
-
-nous souhaiterions qualifier ces éléments en change dans l’outil JIRA.
-
-Nous avons donc besoin de votre confirmation sur cette qualification afin que le PO puisse procéder à la création de la demande.
-
-Côté BA/DEV, j’ai d’ores et déjà commencé à travailler sur une solution, qui sera discutée au sein de BBBBS avant de vous être proposée.
-
-Je reste bien entendu disponible pour toute précision.
+SELECT
+    col1,
+    col2,
+    CAST(SUBSTR(col3, 7, 4) || '-' || SUBSTR(col3, 4, 2) || '-' || SUBSTR(col3, 1, 2) AS DATE),
+    col4,
+    col5,
+    col6,
+    col7,
+    col8,
+    col9,
+    col10,
+    CAST(SUBSTR(col11, 7, 4) || '-' || SUBSTR(col11, 4, 2) || '-' || SUBSTR(col11, 1, 2) AS DATE),
+    col12,
+    col13
