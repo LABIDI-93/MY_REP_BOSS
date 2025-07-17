@@ -1,32 +1,7 @@
-Bonjour,
-
-Voici le bilan des actions menées dans le cadre de la montée en compétence de François durant la semaine du 9 au 13 juin 2025 :
-
-Création d’objets dans le SGBD Teradata
-
-Mise en place de la structure de création des tables dans le DWH MKI, en conformité avec les règles de modélisation : définition des indexes, des clés primaires et du primary index unique. Deux données clés sont systématiquement intégrées depuis LUCID :
-
-	l’ID technique provenant de la source de collecte
-
-	la dt_tech_sysdate, correspondant à la date d’insertion du traitement.
-
-Paramétrage des scripts de création d’objets Teradata
-
-Gestion des droits Unix
-Apprentissage du fonctionnement des droits d'accès (lecture, écriture, exécution).
-
-Utilisation des serveurs FTP
-Prise en main des outils WinSCP et FileZilla pour les dépôts sur les serveurs d’homologation, et usage de PuTTY pour les commandes en ligne.
-
-Processus de création des tickets Unity
-
-Approche théorique de la chaîne décisionnelle
-
-	Revue complète de l’architecture BI : des sources hétérogènes aux données brutes dans les zones de staging, en passant par les transformations, le stockage dans le DWH (entrepôt de 	données), la constitution des datamarts et l’exploitation via des outils de reporting comme MicroStrategy.
-	Un focus particulier a été fait sur la modélisation en étoile, avec un exemple concret basé sur le DWH MKI (tables de faits et dimensions).
-
-Point important :
-
-	En fin de semaine, nous avons été informés d’une coupe budgétaire imposant l’arrêt immédiat des travaux liés au projet de pilotage des ventes digitales. Par conséquent, François, 	Alexandre Haguet et moi-même cessons toute action sur ce périmètre.
-	Nous poursuivons néanmoins nos travaux sur le domaine MKI, et réorientons nos efforts vers d'autres projets tels que la satisfaction client.
-
+SELECT 
+    DatabaseName, 
+    CurrentPerm, 
+    MaxPerm, 
+    (MaxPerm - CurrentPerm) AS FreePerm
+FROM DBC.DiskSpace
+WHERE DatabaseName = 'XXXXXXX';
