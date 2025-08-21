@@ -1,6 +1,20 @@
-Proposed Solution
-The proposed solution is to allow business teams to place CSV files directly into the Datalab environment, named (...). We already have the necessary permissions with the appropriate user to write files to this location.
+Objet : Compte rendu – Réunion d’architecture Dashboard 
 
-From there, using the admin user of the PILAT application, we would access the files in the Datalab and insert the data into the target tables located in another schema (PILAT).
+Bonjour à tous,
 
-However, since we do not currently have the required access rights to perform this operation, we are submitting this request to obtain the necessary permissions.
+Merci pour votre présence lors de la réunion d’architecture consacrée au projet Dashboard  (C T  C ).
+Vous trouverez ci-dessous les principaux points que j’ai retenus. N’hésitez pas à compléter ou à corriger si nécessaire :
+
+Conformité : L’architecture proposée répond aux normes en vigueur.
+
+Stockage des données (M ou D ) : Le sujet reste en cours. RB doit fournir à JER des éléments complémentaires afin de statuer sur l’emplacement du stockage.
+
+Usages applicatifs : JER prévoit un point avec N+2 et P Y pour élargir la discussion au-delà du projet CTC, notamment sur la création des applications et les codes I  associés.
+
+Projet HARM  : R B doit transmettre à JER les extractions ou éléments qui ont permis à I G de constater l’insuffisance des informations et la nécessité de mettre en place ce tableau de bord.
+
+Directives Dashboard : JER  a partagé des indications très pertinentes sur les bonnes pratiques de création de tableaux de bord et sur l’importance d’améliorer l’expérience utilisateur des conseillers. L’objectif est de leur permettre de dégager davantage de temps pour leurs relations commerciales.
+
+Prochaine étape : R B  travaillera sur la préparation et la réservation de créneaux pour une présentation à destination de Pr Ma.
+
+Merci à tous pour vos contributions.
