@@ -1,20 +1,63 @@
-Objet : Compte rendu – Réunion d’architecture Dashboard 
+Dans le monde de la data, quand on parle de modèle en couches (layered model / architecture en couches), on fait référence à une manière d’organiser les données et leurs transformations en plusieurs niveaux (layers), chacun ayant un rôle précis.
 
-Bonjour à tous,
+L’idée est de structurer le cycle de vie de la donnée pour qu’elle soit :
 
-Merci pour votre présence lors de la réunion d’architecture consacrée au projet Dashboard  (C T  C ).
-Vous trouverez ci-dessous les principaux points que j’ai retenus. N’hésitez pas à compléter ou à corriger si nécessaire :
+Fiable (qualité, cohérence)
 
-Conformité : L’architecture proposée répond aux normes en vigueur.
+Traçable (on sait d’où elle vient et comment elle a été transformée)
 
-Stockage des données (M ou D ) : Le sujet reste en cours. RB doit fournir à JER des éléments complémentaires afin de statuer sur l’emplacement du stockage.
+Réutilisable (chaque couche a une fonction claire, on évite de refaire les mêmes calculs partout)
 
-Usages applicatifs : JER prévoit un point avec N+2 et P Y pour élargir la discussion au-delà du projet CTC, notamment sur la création des applications et les codes I  associés.
+🔹 Exemple typique d’un modèle en couches dans un Data Warehouse ou un Data Lakehouse
 
-Projet HARM  : R B doit transmettre à JER les extractions ou éléments qui ont permis à I G de constater l’insuffisance des informations et la nécessité de mettre en place ce tableau de bord.
+On retrouve généralement 3 à 5 couches principales :
 
-Directives Dashboard : JER  a partagé des indications très pertinentes sur les bonnes pratiques de création de tableaux de bord et sur l’importance d’améliorer l’expérience utilisateur des conseillers. L’objectif est de leur permettre de dégager davantage de temps pour leurs relations commerciales.
+Raw Layer (couche brute / staging / landing)
 
-Prochaine étape : R B  travaillera sur la préparation et la réservation de créneaux pour une présentation à destination de Pr Ma.
+Données ingérées telles qu’elles arrivent depuis les sources (API, fichiers, bases de données, IoT, etc.).
 
-Merci à tous pour vos contributions.
+Pas ou peu de transformations (juste nettoyage technique).
+
+Objectif : garder une "copie fidèle" de la source pour l’audit et la traçabilité.
+
+Cleansed / Standardized Layer (couche de nettoyage / normalisation)
+
+Données standardisées : types homogènes, formats de dates, codes harmonisés.
+
+Détection et gestion des erreurs, valeurs manquantes, doublons.
+
+Objectif : rendre les données propres et fiables.
+
+Business Layer (couche métier / core / intégration)
+
+Modélisation des données selon les règles de gestion de l’entreprise.
+
+Agrégations, jointures entre différentes sources.
+
+C’est là qu’on construit le modèle en étoile (star schema) ou en flocon pour un DWH.
+
+Data Mart / Analytics Layer (couche de consommation)
+
+Données organisées pour un usage spécifique (ex : finance, marketing, RH).
+
+Vue simplifiée pour les dashboards, la BI, l’IA/ML.
+
+Objectif : optimiser l’accès et la performance pour l’utilisateur final.
+
+Application / Presentation Layer (couche de restitution)
+
+Données exposées à travers des outils (Power BI, Tableau, Qlik, API).
+
+C’est ce que voient les décideurs et analystes.
+
+🔹 Pourquoi utiliser un modèle en couches ?
+
+✅ Clarifie les responsabilités (chaque couche a une fonction précise)
+✅ Améliore la gouvernance et la traçabilité des données
+✅ Facilite la maintenance (un bug dans une couche n’impacte pas directement la suivante)
+✅ Permet de réutiliser les transformations sans tout refaire
+
+👉 En résumé :
+Le modèle en couches est une architecture de gestion des données qui sépare le brut, le nettoyé, le métier et la consommation pour garantir qualité, traçabilité et performance.
+
+Veux-tu que je te fasse un schéma visuel simple en couches (genre architecture data lake/warehouse) pour bien fixer l’idée ?
