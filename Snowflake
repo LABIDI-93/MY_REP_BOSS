@@ -1,7 +1,64 @@
-SELECT 
-    DatabaseName, 
-    CurrentPerm, 
-    MaxPerm, 
-    (MaxPerm - CurrentPerm) AS FreePerm
-FROM DBC.DiskSpace
-WHERE DatabaseName = 'XXXXXXX';
+Définition
+
+La dette technique correspond à des choix techniques rapides ou non optimaux faits pour livrer plus vite une fonctionnalité, mais qui génèrent des coûts futurs (en maintenance, en complexité, en performance).
+C’est comme un emprunt : on gagne du temps au départ, mais on doit "rembourser" plus tard avec des intérêts (bugs, lenteurs, rigidité, surcoût de migration, etc.).
+
+📊 Manifestations dans un projet Data
+
+Voici comment la dette technique peut apparaître concrètement dans ton contexte :
+
+1. Orchestration (Control-M)
+
+Exemple de dette : multiplications de jobs créés "vite fait" avec des dépendances complexes, sans documentation claire.
+👉 Résultat : l’ordonnancement devient fragile, une simple modification de dépendance casse toute une chaîne de traitements.
+
+Intérêts à payer : beaucoup de temps perdu pour analyser les flux lors d’incidents ou migrations.
+
+2. Scripts BTEQ / Teradata
+
+Exemple de dette : des scripts SQL BTEQ très longs, copiés-collés d’autres scripts, sans factorisation.
+👉 Résultat : incohérences entre environnements, difficulté à maintenir, performance dégradée (requêtes pas optimisées, pas d’index adaptés).
+
+Intérêts à payer : lenteurs croissantes avec la volumétrie, effort supplémentaire lors de la migration vers Snowflake ou un autre DWH.
+
+3. ETL DataStage
+
+Exemple de dette : jobs DataStage conçus rapidement, avec peu de réutilisation (pas de modèles communs, beaucoup de transformations codées en dur).
+👉 Résultat : pipeline difficile à comprendre, coûts élevés de maintenance si une règle métier change.
+
+Intérêts à payer : chaque modification demande beaucoup d’efforts car tout est dispersé.
+
+4. Scripts Shell Unix
+
+Exemple de dette : scripts shell qui manipulent des fichiers plats sans gestion d’erreurs robuste (pas de log centralisé, pas de gestion des retours d’erreur).
+👉 Résultat : quand un fichier est absent ou corrompu, tout le traitement échoue et il faut débugger manuellement.
+
+Intérêts à payer : perte de temps des équipes d’exploitation, manque d’industrialisation.
+
+5. Documentation et standardisation
+
+Exemple de dette : absence de documentation des jobs, des règles métier ou des dépendances entre tables.
+👉 Résultat : seules certaines personnes "historiques" comprennent le système.
+
+Intérêts à payer : risque élevé lors du turnover, allongement du temps d’analyse pour toute évolution.
+
+🚨 Conséquences typiques
+
+Rigidité : chaque évolution prend plus de temps que prévu.
+
+Fragilité : plus de risques d’incidents en production.
+
+Performance dégradée : traitements trop longs, surtout avec de grosses volumétries.
+
+Difficultés de migration : dette accumulée qui rend le passage à de nouvelles techno (ex. Snowflake, Airflow, dbt) beaucoup plus coûteux.
+
+✅ Exemple concret de scénario
+
+Un job DataStage charge une table Teradata via un script BTEQ ordonnancé par Control-M.
+
+Pour livrer vite, le développeur a codé une jointure complexe en SQL sans index, et ajouté un script shell pour renommer les fichiers.
+
+Tout marche… mais au fil du temps, les volumes explosent → le traitement prend 6h au lieu de 1h.
+
+Quand on migre vers Snowflake, on doit réécrire entièrement le pipeline (DataStage → dbt, BTEQ → SnowSQL).
+👉 Ce qu’on avait "gagné" au début en allant vite se paye très cher à long terme.
